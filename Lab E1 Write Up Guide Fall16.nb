@@ -1,0 +1,1500 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     58568,       1492]
+NotebookOptionsPosition[     55593,       1389]
+NotebookOutlinePosition[     56001,       1407]
+CellTagsIndexPosition[     55958,       1404]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["Mathematica Write-Up Guide for E1",
+ FontSlant->"Italic"]], "Title",
+ CellChangeTimes->{{3.4826004965039873`*^9, 3.4826005266614437`*^9}, {
+  3.485870234758279*^9, 3.485870249630027*^9}, {3.6573781559016247`*^9, 
+  3.6573781647937*^9}, {3.67568187141455*^9, 3.675681877207897*^9}}],
+
+Cell[TextData[{
+ "Before working this tutorial, you may want to familiarize yourself with how \
+",
+ StyleBox["Mathematica ",
+  FontSlant->"Italic"],
+ "works for a little bit. Try making a few simple calculations and get used \
+to the formatting and the \[OpenCurlyDoubleQuote]shift return\
+\[CloseCurlyDoubleQuote] evaluation. This tutorial is meant to guide you \
+through writing your lab report in the context of PHYS 1140, not give you a \
+general overview of how ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " functions and all of its amazing features.\n\nFor lab reports in the \
+future refer to the additional ",
+ StyleBox["Mathematica ",
+  FontSlant->"Italic"],
+ "tutorial we have provided online to perform additional tasks."
+}], "Text",
+ CellChangeTimes->{{3.6579101371424303`*^9, 3.657910289197879*^9}, {
+  3.6579164489097347`*^9, 3.657916455194228*^9}, {3.6611104526959963`*^9, 
+  3.661110457654533*^9}, {3.6653485329372873`*^9, 3.6653486235543118`*^9}, {
+  3.683208708512727*^9, 3.683208710461566*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Saving your Work:", "Section",
+ CellChangeTimes->{{3.570386452396957*^9, 3.5703864770566797`*^9}}],
+
+Cell["\<\
+Log on to the computers using your CU Boulder identikey and identikey password.
+
+Save a temporary copy to the desktop of your computer. Once you lab session \
+is over, we recommend saving your work to a USB flash drive, emailing it to \
+yourself, Google Drive, etc... The more places the better, as this will avoid \
+possible heart ache in the future. Once you log-off you may not be able to \
+retrieve your previous work. \
+\>", "Text",
+ CellChangeTimes->{{3.570386483344438*^9, 3.570386602946957*^9}, {
+  3.57079590726366*^9, 3.570795982952979*^9}, {3.6610896633410645`*^9, 
+  3.6610896780151296`*^9}, {3.661110709187766*^9, 3.661110727361974*^9}, {
+  3.672756555428479*^9, 3.672756698892126*^9}, {3.67275681431192*^9, 
+  3.672756926095292*^9}, {3.683208670385646*^9, 3.683208705463613*^9}, {
+  3.683208756513542*^9, 3.683208765107836*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Cells in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ":"
+}], "Section",
+ CellChangeTimes->{{3.570386452396957*^9, 3.5703864770566797`*^9}, {
+  3.657378263320487*^9, 3.657378271845417*^9}, {3.657378306389883*^9, 
+  3.657378310595994*^9}, {3.657378364433919*^9, 3.657378365649681*^9}}],
+
+Cell[TextData[{
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " consists of \[OpenCurlyDoubleQuote]cells\[CloseCurlyDoubleQuote] that are \
+indicated on the right side of the document by a tiered bracketing system. \
+Each cell has a defined format that can be chosen by clicking on the \
+\[OpenCurlyDoubleQuote]Format\[CloseCurlyDoubleQuote] tab and going to \
+\[OpenCurlyDoubleQuote]Style\[CloseCurlyDoubleQuote]. This brings up a menu \
+of all the styles that can be defined for a cell. For example the cell that \
+this text exists in is the \
+\[OpenCurlyDoubleQuote]Text\[CloseCurlyDoubleQuote] style. The default style \
+is the \[OpenCurlyDoubleQuote]Input\[CloseCurlyDoubleQuote] style. The styles \
+you will use most are as follows: Title, Subtitle, Section, Subsection, \
+Input, Output.  First title your ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " document as \[OpenCurlyDoubleQuote]",
+ StyleBox["E1: Introduction to Circuits",
+  FontSlant->"Italic"],
+ "\[CloseCurlyDoubleQuote] by clicking the Format tab and choosing \
+\[OpenCurlyDoubleQuote]Title\[CloseCurlyDoubleQuote] from the Style menu. Be \
+sure to include your name, T.A.\[CloseCurlyQuote]s name, section number, and \
+date. Then, with your mouse place the cursor below your title until the \
+cursor becomes horizontal and click there. This creates a new input cell. \n\n\
+You will ",
+ StyleBox["use input cells to make calculations and write code for tables and \
+plots",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ ", and ",
+ StyleBox["use text cells for reporting ",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ StyleBox["your",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontVariations->{"Underline"->True}],
+ StyleBox[" analysis, observations, and results of an experiment",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ ". It is important that you do not write text in an input cell as this will \
+cause many problems when you evaluate and edit your notebook.\n\nNote that on \
+the right side of the cell there are brackets. By right clicking on the cell \
+bracket you can change the properties and style of that cell or group of \
+cells, in addition to copying and pasting, and a variety of other features. "
+}], "Text",
+ CellChangeTimes->{{3.570386483344438*^9, 3.570386602946957*^9}, {
+   3.57079590726366*^9, 3.570795982952979*^9}, 3.6573782846518593`*^9, 
+   3.6573787580048103`*^9, {3.657378819651219*^9, 3.657378876542729*^9}, {
+   3.65738609245702*^9, 3.657386103478085*^9}, {3.657386139511261*^9, 
+   3.657386230305558*^9}, {3.6573870816475477`*^9, 3.657387114686061*^9}, {
+   3.6573871712608967`*^9, 3.657387186827162*^9}, {3.657387227096651*^9, 
+   3.657387255176461*^9}, {3.657387347332844*^9, 3.6573873778756638`*^9}, 
+   3.657387505582659*^9, {3.657387550493011*^9, 3.6573875525089283`*^9}, {
+   3.657896603607049*^9, 3.657896610904974*^9}, {3.657896756643921*^9, 
+   3.657896847712228*^9}, {3.657904098522306*^9, 3.657904099658208*^9}, 
+   3.657910321036172*^9, 3.657987912791346*^9, {3.661089705294313*^9, 
+   3.6610897421366587`*^9}, {3.661089798201445*^9, 3.6610898248530135`*^9}, 
+   3.661110588002707*^9, 3.661179134617153*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Making Page Headers in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ":"
+}], "Section",
+ CellChangeTimes->{{3.570386452396957*^9, 3.5703864770566797`*^9}, {
+  3.657378263320487*^9, 3.657378271845417*^9}, {3.657378306389883*^9, 
+  3.657378310595994*^9}, {3.6573783582124968`*^9, 3.6573783783051443`*^9}}],
+
+Cell["\<\
+You will be required to make a \[OpenCurlyDoubleQuote]header\
+\[CloseCurlyDoubleQuote] for all of your documents/reports for PHYS 1140. \
+This ensures your name is on all pages and can be returned to you or your \
+T.A. if pages get separated or turned into the wrong turn-in slot. To make a \
+header follow these steps:
+\t1) Click \[OpenCurlyDoubleQuote]File\[CloseCurlyDoubleQuote].
+\t2) Click on \[OpenCurlyDoubleQuote]Printing Settings\[CloseCurlyDoubleQuote].
+\t3) Click on \[OpenCurlyDoubleQuote]Headers and Footers\
+\[CloseCurlyDoubleQuote] which will take you to the header and footer menu.
+\t4) Enter the appropriate Information into the header field for both the \
+left and right pages. Place the header on the right side of the page.
+\t5) Click on \[OpenCurlyDoubleQuote]Options\[CloseCurlyDoubleQuote].
+\t6) Make sure the box for \[OpenCurlyDoubleQuote]Facing pages with the first \
+Page on the\[CloseCurlyDoubleQuote] is not checked, but select \
+\[OpenCurlyDoubleQuote]Right\[CloseCurlyDoubleQuote].
+\t7) On the \[OpenCurlyDoubleQuote]Include on first page\
+\[CloseCurlyDoubleQuote] select \[OpenCurlyDoubleQuote]Header\
+\[CloseCurlyDoubleQuote].\
+\>", "Text",
+ CellChangeTimes->{{3.570386483344438*^9, 3.570386602946957*^9}, {
+   3.57079590726366*^9, 3.570795982952979*^9}, 3.6573782846518593`*^9, {
+   3.6573783862735777`*^9, 3.657378513324049*^9}, {3.657386350221817*^9, 
+   3.657386440984028*^9}, {3.657386756187067*^9, 3.657386886198311*^9}, {
+   3.657896640182027*^9, 3.657896646885771*^9}, {3.658071353903533*^9, 
+   3.658071377453965*^9}, {3.658071431707334*^9, 3.658071455194931*^9}, 
+   3.661110524963695*^9, 3.661179049725095*^9, {3.6611792143899603`*^9, 
+   3.6611792674756203`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Write Your Introduction!", "Section",
+ CellChangeTimes->{{3.6578984660428877`*^9, 3.657898473640605*^9}, {
+  3.661179034743168*^9, 3.6611790353095207`*^9}}],
+
+Cell["\<\
+In the following sections we will go over how to make calculations and format \
+data. Put the section title in a \[OpenCurlyDoubleQuote]Section\
+\[CloseCurlyDoubleQuote] cell, and write the body of your introduction in a \
+\[OpenCurlyDoubleQuote]Text\[CloseCurlyDoubleQuote] cell below that.Given \
+what you now know, start by writing your introduction section and part of \
+your data analysis.
+
+To spell check your document, something you will want to do when you are \
+finished writing a report, go to the \[OpenCurlyDoubleQuote]Edit\
+\[CloseCurlyDoubleQuote] menu and click on \[OpenCurlyDoubleQuote]Check \
+Spelling...\[CloseCurlyDoubleQuote]. Be sure to do this when you are all done \
+with your report! \[HappySmiley]\
+\>", "Text",
+ CellChangeTimes->{{3.657898488409754*^9, 3.657898505127071*^9}, {
+  3.657898572132183*^9, 3.657898625267083*^9}, {3.657904103097011*^9, 
+  3.657904176229987*^9}, {3.657987928260023*^9, 3.657987949794417*^9}, {
+  3.6610899253944693`*^9, 3.6610899273022995`*^9}, {3.661179370287374*^9, 
+  3.661179423086616*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Inputting Data in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"]
+}], "Section",
+ CellChangeTimes->{{3.570386452396957*^9, 3.5703864770566797`*^9}, {
+   3.657378263320487*^9, 3.657378271845417*^9}, {3.657378306389883*^9, 
+   3.657378310595994*^9}, {3.657387577436296*^9, 3.6573875945853148`*^9}, 
+   3.657896649557482*^9}],
+
+Cell[TextData[{
+ "For your PHYS 1140 lab reports, you will be inputting data in one of two \
+different ways: individual numbers or as a list. In this first example, we \
+will enter data for the cold resistance of the light bulb and perform a \
+simple computation.\n\nBefore writing the code, take note of the following \
+items:\n\t- Input cells are evaluated by pressing and holding: shift return. \
+Unassigned variables are blue and assigned variables are black. \n\t- Notice \
+that the semicolon ; suppresses the output, i.e. ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " assigns the variable a value but does not print it in the output.\n\t- \
+Comments are made by: (* blah blah blah *) which allows you to give an \
+explanation of the variable name and provide units. Note that comments are \
+not printed in the output.\n\t- Greek letters, and other special characters, \
+like \[Delta] are made by pressing: esc delta esc. Also the square root \
+symbol is made by pressing ctrl 2 to get ",
+ Cell[BoxData[
+  FormBox[
+   SqrtBox["\[Placeholder]"], TraditionalForm]]],
+ ". The esc key in ",
+ StyleBox["Mathematica ",
+  FontSlant->"Italic"],
+ "is often used as a keyboard shortcut for making Greek letters and special \
+characters. You will learn these as the semester goes on. For now go to \
+\[OpenCurlyDoubleQuote]Palettes\[CloseCurlyDoubleQuote] and click on \
+\[OpenCurlyDoubleQuote]Classroom Assistant\[CloseCurlyDoubleQuote] and look \
+through some of the functional and typesetting features in this palette. To \
+get Greek letters toggle the \[OpenCurlyDoubleQuote]Typesetting\
+\[CloseCurlyDoubleQuote] pull-down menu and click on the \
+\[OpenCurlyDoubleQuote]\[Infinity] \[Beta]\[CloseCurlyDoubleQuote] button. \
+(Tip: If you hover your cursor over the symbol, the keyboard shortcut \
+appears.)\n\t- The output is unrounded, so final answers must be reported in \
+a text cell. \n\t- Values and their uncertainties ",
+ StyleBox["must be written separately in input cells ",
+  FontWeight->"Bold"],
+ "(i.e. you do ",
+ StyleBox["not",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " write \[OpenCurlyDoubleQuote]Rsystem = 1.3 \[ImplicitPlus]\[PlusMinus] 0.1\
+\[CloseCurlyDoubleQuote] in an input cell). ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " can not perform arithmetic consistently on a number like this.\n\t- Do not \
+use subscripts, underscores, or spaces when creating a variable name (i.e. \
+you do ",
+ StyleBox["not",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " write \[OpenCurlyDoubleQuote]R",
+ StyleBox["system",
+  FontSize->12],
+ "=1.3\[CloseCurlyDoubleQuote] or \[OpenCurlyDoubleQuote]R_system=1.3\
+\[CloseCurlyDoubleQuote] or \[OpenCurlyDoubleQuote]Resistance system = 1.3\
+\[CloseCurlyDoubleQuote]). Be careful using capital letters as well since \
+they may already be built-in functions in ",
+ StyleBox["Mathematica. ",
+  FontSlant->"Italic"],
+ "(i.e. the function N[] turns a number, like Sin[4/3], into a decimal. \
+Typing \[OpenCurlyDoubleQuote]N=32\[CloseCurlyDoubleQuote] will cause \
+issues.)\n\t\nType the following into an input cell using the measured cold \
+resistance that you collected and press the Shift key (hold it down) and \
+press the enter key. "
+}], "Text",
+ CellChangeTimes->{{3.570386483344438*^9, 3.570386602946957*^9}, {
+   3.57079590726366*^9, 3.570795982952979*^9}, 3.6573782846518593`*^9, 
+   3.657387597513616*^9, {3.657387713782744*^9, 3.657387715572433*^9}, {
+   3.657387767410565*^9, 3.65738777373007*^9}, {3.657389327605855*^9, 
+   3.657389432735564*^9}, {3.657389670504163*^9, 3.657389712468317*^9}, 
+   3.657896651549211*^9, {3.6610911423259506`*^9, 3.6610911427563615`*^9}, {
+   3.66117953575179*^9, 3.661179556392417*^9}, {3.665347742692412*^9, 
+   3.6653480575159283`*^9}, {3.665348354319481*^9, 3.665348413036971*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Rsystem", " ", "=", " ", "1.3"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Bulb", "+", 
+    RowBox[{"Wire", " ", "resistance", " ", "in", " ", "Ohms"}]}], "*)"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Rwires", " ", "=", " ", "0.4"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Resistance", " ", "of", " ", "the", " ", "wires", " ", "in", " ", 
+    "Ohms"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Delta]R", " ", "=", " ", "0.1"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Uncertianty", " ", "on", " ", "the", " ", "DMM", " ", "in", " ", "Ohms"}],
+    "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Rbulb", " ", "=", " ", 
+   RowBox[{"Rsystem", "-", "Rwires"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Resistance", " ", "of", " ", "the", " ", "bulb", " ", "in", " ", "Ohms"}],
+    "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[Delta]Rbulb", " ", "=", " ", 
+  SqrtBox[
+   RowBox[{
+    RowBox[{"\[Delta]R", "^", "2"}], "+", 
+    RowBox[{"\[Delta]R", "^", "2"}]}]], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Uncertianty", " ", "of", " ", "the", " ", "resistance", " ", "in", " ", 
+    "Ohms"}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.6573894407126207`*^9, 3.6573896381042547`*^9}, {
+  3.657389714933943*^9, 3.657389788002718*^9}, {3.6610899891796627`*^9, 
+  3.661090031449215*^9}, {3.6610901050338087`*^9, 3.6610901080557084`*^9}}],
+
+Cell[BoxData["0.9`"], "Output",
+ CellChangeTimes->{3.657389640188325*^9, 3.65738979215998*^9, 
+  3.657909784084035*^9, 3.657976466212327*^9, 3.6610908153872833`*^9, 
+  3.6610909457063417`*^9, 3.661091104328497*^9, 3.6611011091399517`*^9, 
+  3.661101153496737*^9, 3.6611101719167233`*^9, 3.6611849297285223`*^9}],
+
+Cell[BoxData["0.14142135623730953`"], "Output",
+ CellChangeTimes->{3.657389640188325*^9, 3.65738979215998*^9, 
+  3.657909784084035*^9, 3.657976466212327*^9, 3.6610908153872833`*^9, 
+  3.6610909457063417`*^9, 3.661091104328497*^9, 3.6611011091399517`*^9, 
+  3.661101153496737*^9, 3.6611101719167233`*^9, 3.661184929735999*^9}]
+}, Open  ]],
+
+Cell["\<\
+Hence my measured resistance with the DMM, reported in standard format, is: R \
+= (0.90 \[PlusMinus] 0.14) \[CapitalOmega]. \
+\>", "Text",
+ CellChangeTimes->{{3.657389657400668*^9, 3.657389662390139*^9}, {
+   3.6573897994250793`*^9, 3.6573902200805483`*^9}, {3.657390261022933*^9, 
+   3.657390453750794*^9}, {3.657390914820977*^9, 3.657390916004032*^9}, {
+   3.6573918296339703`*^9, 3.6573919092604218`*^9}, {3.6573920146647863`*^9, 
+   3.657392071590457*^9}, {3.657896655918013*^9, 3.657896735859343*^9}, {
+   3.657896942427889*^9, 3.657896975785541*^9}, {3.657897027785541*^9, 
+   3.6578971352190638`*^9}, {3.657897190592778*^9, 3.657897251614049*^9}, {
+   3.657897387530052*^9, 3.65789738834453*^9}, {3.6578975768157*^9, 
+   3.657897622254126*^9}, {3.657898268675817*^9, 3.6578982686785192`*^9}, 
+   3.6578983811529284`*^9, {3.657903232690873*^9, 3.657903240271474*^9}, {
+   3.6579039440334787`*^9, 3.6579040248778267`*^9}, {3.6579040680601187`*^9, 
+   3.657904074459577*^9}, {3.657904210232499*^9, 3.6579042134455557`*^9}, {
+   3.657904280242659*^9, 3.657904319585251*^9}, {3.6579103280359697`*^9, 
+   3.6579103301719418`*^9}, {3.6579767926084023`*^9, 
+   3.6579767968016863`*^9}, {3.657976838768386*^9, 3.657976840398698*^9}, {
+   3.661090050743727*^9, 3.661090053399272*^9}, {3.6610901193535466`*^9, 
+   3.6610901686438336`*^9}, {3.6611105277972116`*^9, 3.6611105420762653`*^9}, 
+   3.6611106742881327`*^9, {3.661179529657617*^9, 3.661179531063857*^9}, {
+   3.6611796619893703`*^9, 3.661179664642252*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Tables and Plotting in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"]
+}], "Section",
+ CellChangeTimes->{{3.657904407325843*^9, 3.657904416827291*^9}}],
+
+Cell[TextData[{
+ "In your E1 experiment you will have collected many pairs of voltage and \
+current values of your light bulb. The next task is to get these values into ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " to put them in a table and plot them. In PHYS 1140 the main way you will \
+do this is by \[OpenCurlyDoubleQuote]threading lists\[CloseCurlyDoubleQuote]. \
+Consider the following example:"
+}], "Text",
+ CellChangeTimes->{{3.657904549095683*^9, 3.657904590131966*^9}, {
+  3.657904622082542*^9, 3.657904741677732*^9}, {3.6610902299476337`*^9, 
+  3.6610902302579436`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Vbulb", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "0.05", ",", "0.150", ",", "0.250", ",", "0.350", ",", "0.450", ",", 
+      "0.550", ",", "1.00", ",", "1.500", ",", "2.000", ",", "3.00", ",", 
+      "4.00", ",", "5.00", ",", "6.00", ",", "7.00", ",", "8.00", ",", "9.00",
+       ",", "10.00", ",", "12.00"}], "}"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Voltage", " ", "across", " ", "the", " ", "bulb", " ", "in", " ", 
+    "Volts"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Ibulb", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.064", ",", "0.150", ",", "0.207", ",", "0.248", ",", "0.276", ",", 
+     "0.297", ",", "0.360", ",", "0.408", ",", "0.450", ",", "0.526", ",", 
+     "0.598", ",", "0.662", ",", "0.721", ",", "0.781", ",", "0.834", ",", 
+     "0.884", ",", "0.931", ",", "1.021"}], "}"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Current", " ", "through", " ", "the", " ", "bulb", " ", "in", " ", 
+    "Amps"}], "*)"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"VvsI", " ", "=", " ", 
+  RowBox[{"Thread", "[", 
+   RowBox[{"{", 
+    RowBox[{"Ibulb", ",", " ", "Vbulb"}], "}"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.6579047451033907`*^9, 3.6579047743010693`*^9}, {
+  3.657904875946419*^9, 3.657905203178821*^9}, {3.657905238224985*^9, 
+  3.657905306761879*^9}, {3.657907964116909*^9, 3.657907971283657*^9}, {
+  3.6579081680448217`*^9, 3.657908169610935*^9}, {3.657909778182028*^9, 
+  3.657909779381481*^9}, {3.6610902399962873`*^9, 3.661090241472704*^9}, {
+  3.661179741315444*^9, 3.661179759055997*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.064`", ",", "0.05`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.15`", ",", "0.15`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.207`", ",", "0.25`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.248`", ",", "0.35`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.276`", ",", "0.45`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.297`", ",", "0.55`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.36`", ",", "1.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.408`", ",", "1.5`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.45`", ",", "2.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.526`", ",", "3.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.598`", ",", "4.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.662`", ",", "5.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.721`", ",", "6.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.781`", ",", "7.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.834`", ",", "8.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.884`", ",", "9.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.931`", ",", "10.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.021`", ",", "12.`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.657905143973454*^9, {3.657905180196681*^9, 3.657905203930511*^9}, {
+   3.657905267803368*^9, 3.6579052793560457`*^9}, 3.6579053116271133`*^9, 
+   3.657908178618466*^9, {3.6579097808736563`*^9, 3.657909784367547*^9}, 
+   3.657976466377016*^9, 3.6610908154683733`*^9, 3.661090945902508*^9, 
+   3.6610911044045725`*^9, 3.661101109257675*^9, 3.661101153777875*^9, 
+   3.661110172181158*^9, 3.6611849298643827`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Notice how the Thread[ ] function \[OpenCurlyDoubleQuote]zips\
+\[CloseCurlyDoubleQuote] the two sets of data together. In general the Thread \
+function makes a list of order pairs. So, if you have a list of x-values and \
+a list of y-values, and you are asked to make a plot of y-values vs. x-values \
+then you will type: dataxy = Thread[{x-values,y-values}]. \n\nNow, save your \
+work and quit ",
+ StyleBox["Mathematica.",
+  FontSlant->"Italic"],
+ " When you reopen your document, you should notice that all the variables \
+that were black are now blue. Blue means that the variable is not assigned a \
+value, array, graphic, etc... and black means it has been assigned to \
+something. Rather than re-evaluating each cell individually, go to Evaluation \
+\[Rule] Evaluate Notebook. You will need to do this every time you open a ",
+ StyleBox["Mathematica ",
+  FontSlant->"Italic"],
+ "notebook. ",
+ StyleBox["Save your work often and back up your work!",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ "\n\n",
+ StyleBox["Note:",
+  FontWeight->"Bold"],
+ " when we say to plot Resistance vs. Current, we want Current on the x-axis \
+and Resistance on the y-axis. In general, think of plotting the ",
+ StyleBox["dependent ",
+  FontSlant->"Italic"],
+ "variable against or versus the ",
+ StyleBox["independent ",
+  FontSlant->"Italic"],
+ "variable. However, the Thread[ ] function makes (x,y) ordered pairs ",
+ StyleBox["not",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " (y,x) pairs.\n\nWe also want to make plots involving Resistance and Power, \
+so we must perform calculations on the lists. In ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " calculations on a list happen element-wise, so, for example, taking \
+Vbulb/Ibulb divides the ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["i", "th"], TraditionalForm]]],
+ "element of Vbulb by the ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["i", "th"], TraditionalForm]]],
+ " element of Ibulb. "
+}], "Text",
+ CellChangeTimes->{{3.657905321974291*^9, 3.6579053493471737`*^9}, {
+   3.6579054690058317`*^9, 3.657905529947331*^9}, {3.657905570955694*^9, 
+   3.6579056446309443`*^9}, {3.657905699476489*^9, 3.6579057648658943`*^9}, {
+   3.6579058055836477`*^9, 3.6579058261270027`*^9}, {3.65790586375933*^9, 
+   3.657905873052697*^9}, {3.657906067156661*^9, 3.657906216926506*^9}, {
+   3.657907989588353*^9, 3.657908023872334*^9}, {3.657910343202633*^9, 
+   3.657910349978389*^9}, {3.661090261123555*^9, 3.661090330450076*^9}, {
+   3.665348099819632*^9, 3.665348290193512*^9}, {3.665348471433693*^9, 
+   3.665348474825639*^9}, 3.66534850586655*^9, 3.68320873110644*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Rbulb", " ", "=", " ", 
+    RowBox[{"Vbulb", "/", "Ibulb"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Resistance", " ", "of", " ", "the", " ", "Bulb", " ", "in", " ", "Ohms"}],
+    "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Pbulb", " ", "=", " ", 
+    RowBox[{"Ibulb", "*", "Vbulb"}]}], " ", ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Power", " ", "of", " ", "the", " ", "bulb", " ", "in", " ", "Watts"}], 
+   "*)"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.657906224672942*^9, 3.657906273484201*^9}, {
+  3.66109036265396*^9, 3.66109038705836*^9}}],
+
+Cell["\<\
+Lets make a table of all the data so it is nicely displayed. Observe the \
+following:\
+\>", "Text",
+ CellChangeTimes->{{3.65790629354487*^9, 3.6579063327927303`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"BulbData", " ", "=", " ", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"Vbulb", ",", "Ibulb", ",", "Rbulb", ",", "Pbulb"}], "}"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Grid", "[", 
+  RowBox[{"BulbData", ",", 
+   RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.657906338941908*^9, 3.6579063994016438`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"0.05`", "0.064`", "0.78125`", "0.0032`"},
+    {"0.15`", "0.15`", "1.`", "0.0225`"},
+    {"0.25`", "0.207`", "1.2077294685990339`", "0.05175`"},
+    {"0.35`", "0.248`", "1.411290322580645`", "0.08679999999999999`"},
+    {"0.45`", "0.276`", "1.6304347826086956`", "0.12420000000000002`"},
+    {"0.55`", "0.297`", "1.851851851851852`", "0.16335`"},
+    {"1.`", "0.36`", "2.7777777777777777`", "0.36`"},
+    {"1.5`", "0.408`", "3.6764705882352944`", "0.612`"},
+    {"2.`", "0.45`", "4.444444444444445`", "0.9`"},
+    {"3.`", "0.526`", "5.703422053231939`", "1.578`"},
+    {"4.`", "0.598`", "6.688963210702341`", "2.392`"},
+    {"5.`", "0.662`", "7.552870090634441`", "3.31`"},
+    {"6.`", "0.721`", "8.321775312066574`", "4.326`"},
+    {"7.`", "0.781`", "8.962868117797695`", "5.4670000000000005`"},
+    {"8.`", "0.834`", "9.59232613908873`", "6.672`"},
+    {"9.`", "0.884`", "10.180995475113122`", "7.956`"},
+    {"10.`", "0.931`", "10.741138560687434`", "9.31`"},
+    {"12.`", "1.021`", "11.753183153770815`", "12.251999999999999`"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.657906393410963*^9, 3.657906399950942*^9}, 
+   3.657909784447913*^9, 3.657976466501462*^9, 3.6610908155134172`*^9, 
+   3.661090945939541*^9, 3.6610911044406033`*^9, 3.661101109324875*^9, 
+   3.6611011538448143`*^9, 3.66111017225632*^9, 3.661184929963073*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Notice how we can use Thread[ ] to make a ",
+ StyleBox["matrix",
+  FontSlant->"Italic"],
+ " or an ",
+ StyleBox["array",
+  FontSlant->"Italic"],
+ " of data. We are able to \[OpenCurlyDoubleQuote]zip\[CloseCurlyDoubleQuote] \
+multiple, not just two, lists together. The presentation is still a bit \
+rough: notice how we don\[CloseCurlyQuote]t have the proper number of \
+significant figures and we don't have a header telling us what number is \
+what. ",
+ StyleBox["(Don\[CloseCurlyQuote]t retype everything, just go back and edit \
+what you have already typed and re-evaluate the input cell as we make a fancy \
+table.)",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " First, let\[CloseCurlyQuote]s amend the code above to get the header with \
+the Prepend[ ] command:"
+}], "Text",
+ CellChangeTimes->{{3.6579064384380302`*^9, 3.6579064730745564`*^9}, {
+   3.65790655256118*^9, 3.65790657355046*^9}, 3.657907412873949*^9, {
+   3.6579103537689962`*^9, 3.657910356960868*^9}, {3.657915657122229*^9, 
+   3.6579157205421886`*^9}, {3.6579158012451487`*^9, 3.657915806345834*^9}, {
+   3.6610904323748474`*^9, 3.661090437731987*^9}, {3.6610910205501103`*^9, 
+   3.6610910216481743`*^9}, {3.6611015160699368`*^9, 3.661101647664496*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"Prepend", "[", 
+    RowBox[{"BulbData", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Voltge (V)\>\"", ",", "\"\<Current (A)\>\"", ",", 
+       "\"\<Resistance (\[CapitalOmega])\>\"", ",", "\"\<Power (W)\>\""}], 
+      "}"}]}], "]"}], ",", " ", 
+   RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.657906696347623*^9, 3.657906798025992*^9}, {
+  3.657976456560508*^9, 3.657976461433447*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Voltge (V)\"\>", "\<\"Current (A)\"\>", "\<\"Resistance (\
+\[CapitalOmega])\"\>", "\<\"Power (W)\"\>"},
+    {"0.05`", "0.064`", "0.78125`", "0.0032`"},
+    {"0.15`", "0.15`", "1.`", "0.0225`"},
+    {"0.25`", "0.207`", "1.2077294685990339`", "0.05175`"},
+    {"0.35`", "0.248`", "1.411290322580645`", "0.08679999999999999`"},
+    {"0.45`", "0.276`", "1.6304347826086956`", "0.12420000000000002`"},
+    {"0.55`", "0.297`", "1.851851851851852`", "0.16335`"},
+    {"1.`", "0.36`", "2.7777777777777777`", "0.36`"},
+    {"1.5`", "0.408`", "3.6764705882352944`", "0.612`"},
+    {"2.`", "0.45`", "4.444444444444445`", "0.9`"},
+    {"3.`", "0.526`", "5.703422053231939`", "1.578`"},
+    {"4.`", "0.598`", "6.688963210702341`", "2.392`"},
+    {"5.`", "0.662`", "7.552870090634441`", "3.31`"},
+    {"6.`", "0.721`", "8.321775312066574`", "4.326`"},
+    {"7.`", "0.781`", "8.962868117797695`", "5.4670000000000005`"},
+    {"8.`", "0.834`", "9.59232613908873`", "6.672`"},
+    {"9.`", "0.884`", "10.180995475113122`", "7.956`"},
+    {"10.`", "0.931`", "10.741138560687434`", "9.31`"},
+    {"12.`", "1.021`", "11.753183153770815`", "12.251999999999999`"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.657976463305311*^9, 3.657976466551323*^9}, 
+   3.661090815536439*^9, 3.661090945960563*^9, 3.6610911044596086`*^9, 
+   3.6611011093804502`*^9, 3.6611011538830147`*^9, 3.661110172311108*^9, 
+   3.6611849299894*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Observe that we have the column headers entered as ",
+ StyleBox["strings",
+  FontSlant->"Italic"],
+ ", indicated by the use of quotation marks. To fix the sig. fig. issue we \
+use the NumberForm[ ] command. \n\nDetails about NumberForm[ ] can be found \
+in the ",
+ StyleBox["Wolfram Documentation",
+  FontSlant->"Italic"],
+ " by clicking \[OpenCurlyDoubleQuote]Help\[CloseCurlyDoubleQuote] on the \
+menu bar at the top. Alter your code again as seen below."
+}], "Text",
+ CellChangeTimes->{{3.657906811269733*^9, 3.6579068548821297`*^9}, {
+   3.6579070555134706`*^9, 3.657907072777665*^9}, {3.657907336063438*^9, 
+   3.657907376603664*^9}, {3.657910364024672*^9, 3.65791036995247*^9}, 
+   3.657916482448452*^9, {3.661090467027094*^9, 3.6610905594557643`*^9}, 
+   3.66111056164974*^9, 3.661110686732193*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NumberForm", "[", 
+  RowBox[{
+   RowBox[{"Grid", "[", 
+    RowBox[{
+     RowBox[{"Prepend", "[", 
+      RowBox[{"BulbData", ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<Voltge (V)\>\"", ",", "\"\<Current (A)\>\"", ",", 
+         "\"\<Resistance (\[CapitalOmega])\>\"", ",", "\"\<Power (W)\>\""}], 
+        "}"}]}], "]"}], ",", " ", 
+     RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"Infinity", ",", "3"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6579068649476547`*^9, 3.6579068863214293`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {"\<\"Voltge (V)\"\>", "\<\"Current (A)\"\>", "\<\"Resistance (\
+\[CapitalOmega])\"\>", "\<\"Power (W)\"\>"},
+     {
+      InterpretationBox["\<\"0.050\"\>",
+       0.05,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.064\"\>",
+       0.064,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.781\"\>",
+       0.78125,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.003\"\>",
+       0.0032,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.150\"\>",
+       0.15,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.150\"\>",
+       0.15,
+       AutoDelete->True], 
+      InterpretationBox["\<\"1.000\"\>",
+       1.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.023\"\>",
+       0.0225,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.250\"\>",
+       0.25,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.207\"\>",
+       0.207,
+       AutoDelete->True], 
+      InterpretationBox["\<\"1.208\"\>",
+       1.2077294685990339`,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.052\"\>",
+       0.05175,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.350\"\>",
+       0.35,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.248\"\>",
+       0.248,
+       AutoDelete->True], 
+      InterpretationBox["\<\"1.411\"\>",
+       1.411290322580645,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.087\"\>",
+       0.08679999999999999,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.450\"\>",
+       0.45,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.276\"\>",
+       0.276,
+       AutoDelete->True], 
+      InterpretationBox["\<\"1.630\"\>",
+       1.6304347826086956`,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.124\"\>",
+       0.12420000000000002`,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"0.550\"\>",
+       0.55,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.297\"\>",
+       0.297,
+       AutoDelete->True], 
+      InterpretationBox["\<\"1.852\"\>",
+       1.851851851851852,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.163\"\>",
+       0.16335,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"1.000\"\>",
+       1.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.360\"\>",
+       0.36,
+       AutoDelete->True], 
+      InterpretationBox["\<\"2.778\"\>",
+       2.7777777777777777`,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.360\"\>",
+       0.36,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"1.500\"\>",
+       1.5,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.408\"\>",
+       0.408,
+       AutoDelete->True], 
+      InterpretationBox["\<\"3.676\"\>",
+       3.6764705882352944`,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.612\"\>",
+       0.612,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"2.000\"\>",
+       2.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.450\"\>",
+       0.45,
+       AutoDelete->True], 
+      InterpretationBox["\<\"4.444\"\>",
+       4.444444444444445,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.900\"\>",
+       0.9,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"3.000\"\>",
+       3.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.526\"\>",
+       0.526,
+       AutoDelete->True], 
+      InterpretationBox["\<\"5.703\"\>",
+       5.703422053231939,
+       AutoDelete->True], 
+      InterpretationBox["\<\"1.578\"\>",
+       1.578,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"4.000\"\>",
+       4.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.598\"\>",
+       0.598,
+       AutoDelete->True], 
+      InterpretationBox["\<\"6.689\"\>",
+       6.688963210702341,
+       AutoDelete->True], 
+      InterpretationBox["\<\"2.392\"\>",
+       2.392,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"5.000\"\>",
+       5.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.662\"\>",
+       0.662,
+       AutoDelete->True], 
+      InterpretationBox["\<\"7.553\"\>",
+       7.552870090634441,
+       AutoDelete->True], 
+      InterpretationBox["\<\"3.310\"\>",
+       3.31,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"6.000\"\>",
+       6.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.721\"\>",
+       0.721,
+       AutoDelete->True], 
+      InterpretationBox["\<\"8.322\"\>",
+       8.321775312066574,
+       AutoDelete->True], 
+      InterpretationBox["\<\"4.326\"\>",
+       4.326,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"7.000\"\>",
+       7.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.781\"\>",
+       0.781,
+       AutoDelete->True], 
+      InterpretationBox["\<\"8.963\"\>",
+       8.962868117797695,
+       AutoDelete->True], 
+      InterpretationBox["\<\"5.467\"\>",
+       5.4670000000000005`,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"8.000\"\>",
+       8.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.834\"\>",
+       0.834,
+       AutoDelete->True], 
+      InterpretationBox["\<\"9.592\"\>",
+       9.59232613908873,
+       AutoDelete->True], 
+      InterpretationBox["\<\"6.672\"\>",
+       6.672,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"9.000\"\>",
+       9.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.884\"\>",
+       0.884,
+       AutoDelete->True], 
+      InterpretationBox["\<\"10.181\"\>",
+       10.180995475113122`,
+       AutoDelete->True], 
+      InterpretationBox["\<\"7.956\"\>",
+       7.956,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"10.000\"\>",
+       10.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"0.931\"\>",
+       0.931,
+       AutoDelete->True], 
+      InterpretationBox["\<\"10.741\"\>",
+       10.741138560687434`,
+       AutoDelete->True], 
+      InterpretationBox["\<\"9.310\"\>",
+       9.31,
+       AutoDelete->True]},
+     {
+      InterpretationBox["\<\"12.000\"\>",
+       12.,
+       AutoDelete->True], 
+      InterpretationBox["\<\"1.021\"\>",
+       1.021,
+       AutoDelete->True], 
+      InterpretationBox["\<\"11.753\"\>",
+       11.753183153770815`,
+       AutoDelete->True], 
+      InterpretationBox["\<\"12.252\"\>",
+       12.251999999999999`,
+       AutoDelete->True]}
+    },
+    AutoDelete->False,
+    GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Grid"],
+  NumberForm[#, {
+    DirectedInfinity[1], 3}]& ]], "Output",
+ CellChangeTimes->{3.657906887110938*^9, 3.6579097845455236`*^9, 
+  3.657976466577978*^9, 3.6610909459816003`*^9, 3.661091104480641*^9, 
+  3.661101109429426*^9, 3.6611011539321737`*^9, 3.6611101723615093`*^9, 
+  3.661184930025836*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "The NumberForm function is what\[CloseCurlyQuote]s known as a \
+\[OpenCurlyDoubleQuote]wrapper\[CloseCurlyDoubleQuote]- it formats your final \
+number, but once formatted the numbers can\[CloseCurlyQuote]t be used in \
+further calculations. But, you do still have access to the original data \
+lists entered above for other calculations. It is important, therefore, to ",
+ StyleBox["only use NumberForm once all calculations have been completed in \
+order to present your final result",
+  FontWeight->"Bold"],
+ ". \n\n",
+ StyleBox["NOTE: THE VOLTAGE ACTUALLY DOES NOT HAVE THAT MANY SIGNIFIGANT \
+FIGURES, BUT IT IS DISPLAYED IT IN THIS MANNER BECAUSE NumberForm[ ] HAS A \
+FEW ANNOYING DEFICIENCIES. ",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.65790700724784*^9, 3.657907017724914*^9}, 
+   3.657910372040525*^9, {3.6610905862164264`*^9, 3.661090638569663*^9}, {
+   3.661101697585121*^9, 3.661101718861277*^9}, {3.6611799616735077`*^9, 
+   3.661180032147483*^9}, {3.661180078291848*^9, 3.661180126079403*^9}}],
+
+Cell["\<\
+Your next task is to make three plots: V vs. I, R vs. I, and P vs. I. \
+Plotting of data is done with the ListPlot[ ] command. Note that we have \
+already made the data for the V vs. I plot in an earlier cell, however we \
+must thread the data together for the other two: \
+\>", "Text",
+ CellChangeTimes->{{3.657907880295747*^9, 3.657907938643525*^9}, {
+  3.6579080393266973`*^9, 3.657908063181875*^9}, {3.6579082680691338`*^9, 
+  3.657908284372476*^9}, {3.6579103792959414`*^9, 3.65791038222377*^9}, {
+  3.661090650367982*^9, 3.6610906687406087`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"RvsI", " ", "=", " ", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"Ibulb", ",", "Rbulb"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"PvsI", " ", "=", " ", 
+    RowBox[{"Thread", "[", 
+     RowBox[{"{", 
+      RowBox[{"Ibulb", ",", "Pbulb"}], "}"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", "VvsI", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", "RvsI", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", "PvsI", "]"}]}], "Input",
+ CellChangeTimes->{{3.657908216774675*^9, 3.657908308548181*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{0.064, 0.05}, {0.15, 0.15}, {0.207, 0.25}, {0.248, 0.35}, {
+      0.276, 0.45}, {0.297, 0.55}, {0.36, 1.}, {0.408, 1.5}, {0.45, 2.}, {
+      0.526, 3.}, {0.598, 4.}, {0.662, 5.}, {0.721, 6.}, {0.781, 7.}, {0.834, 
+      8.}, {0.884, 9.}, {0.931, 10.}, {1.021, 12.}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotRange->{{0, 1.021}, {0, 12.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.657908367440833*^9, 3.6579097845962353`*^9, 
+  3.657976466878685*^9, 3.6610909460166216`*^9, 3.6610911045236826`*^9, 
+  3.6611011106177073`*^9, 3.6611011539935713`*^9, 3.661110172432517*^9, 
+  3.661184930522162*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{0.064, 0.78125}, {0.15, 1.}, {0.207, 1.2077294685990339`}, {
+      0.248, 1.411290322580645}, {0.276, 1.6304347826086956`}, {0.297, 
+      1.851851851851852}, {0.36, 2.7777777777777777`}, {0.408, 
+      3.6764705882352944`}, {0.45, 4.444444444444445}, {0.526, 
+      5.703422053231939}, {0.598, 6.688963210702341}, {0.662, 
+      7.552870090634441}, {0.721, 8.321775312066574}, {0.781, 
+      8.962868117797695}, {0.834, 9.59232613908873}, {0.884, 
+      10.180995475113122`}, {0.931, 10.741138560687434`}, {1.021, 
+      11.753183153770815`}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotRange->{{0, 1.021}, {0, 11.753183153770815`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.657908367440833*^9, 3.6579097845962353`*^9, 
+  3.657976466878685*^9, 3.6610909460166216`*^9, 3.6610911045236826`*^9, 
+  3.6611011106177073`*^9, 3.6611011539935713`*^9, 3.661110172432517*^9, 
+  3.661184930558209*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{0.064, 0.0032}, {0.15, 0.0225}, {0.207, 0.05175}, {0.248, 
+      0.08679999999999999}, {0.276, 0.12420000000000002`}, {0.297, 0.16335}, {
+      0.36, 0.36}, {0.408, 0.612}, {0.45, 0.9}, {0.526, 1.578}, {0.598, 
+      2.392}, {0.662, 3.31}, {0.721, 4.326}, {0.781, 5.4670000000000005`}, {
+      0.834, 6.672}, {0.884, 7.956}, {0.931, 9.31}, {1.021, 
+      12.251999999999999`}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotRange->{{0, 1.021}, {0, 12.251999999999999`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.657908367440833*^9, 3.6579097845962353`*^9, 
+  3.657976466878685*^9, 3.6610909460166216`*^9, 3.6610911045236826`*^9, 
+  3.6611011106177073`*^9, 3.6611011539935713`*^9, 3.661110172432517*^9, 
+  3.6611849305983057`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "We still need to label the axes, put in titles on each of the plots, and \
+make a caption for each. ",
+ StyleBox["(Again, just edit what you have already written above and \
+re-evaluate the cell.)",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " To do this, let\[CloseCurlyQuote]s amend the code in the following way:\n\n\
+(Hint: The arrow is made with a space, a dash, then a greater than symbol, \
+i.e. \[OpenCurlyDoubleQuote] -> \[CloseCurlyDoubleQuote] which will \
+automatically turn into \[Rule] when you press space. Also note that we put \
+the plots in separate cells, so we can have text cell commentary below the \
+plots. You can divide cells by right-clicking at the point where you want to \
+divide the cell.)"
+}], "Text",
+ CellChangeTimes->{{3.6579085101245947`*^9, 3.6579085450651407`*^9}, {
+   3.657908587031361*^9, 3.657908596151023*^9}, 3.657910388407427*^9, {
+   3.6579157471484623`*^9, 3.6579157670997133`*^9}, {3.657990632327511*^9, 
+   3.657990664131522*^9}, {3.661090704939336*^9, 3.6610907060634146`*^9}, {
+   3.661090756042362*^9, 3.6610907661630726`*^9}, {3.6610908370460744`*^9, 
+   3.6610908768542523`*^9}, {3.661091051149477*^9, 3.6610910526789446`*^9}, {
+   3.6611101853864517`*^9, 3.6611102144232397`*^9}, 3.661110568729615*^9, {
+   3.661110614758182*^9, 3.66111065819668*^9}, {3.661180224463037*^9, 
+   3.6611802754013557`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"VvsI", ",", 
+   RowBox[{"PlotLabel", "\[Rule]", "\"\<Plot of Voltage vs. Current\>\""}], 
+   ",", 
+   RowBox[{"AxesLabel", " ", "\[Rule]", " ", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Current (A)\>\"", ",", "\"\<Voltage (V)\>\""}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.657908667798573*^9, 3.657908747297615*^9}, 
+   3.657909505042804*^9, {3.657909676107177*^9, 3.657909722999436*^9}, {
+   3.6579098884677362`*^9, 3.6579099005364647`*^9}, {3.661090780510824*^9, 
+   3.661090803514906*^9}, 3.661090941948714*^9, {3.66111014698575*^9, 
+   3.661110155988826*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{0.064, 0.05}, {0.15, 0.15}, {0.207, 0.25}, {0.248, 0.35}, {
+      0.276, 0.45}, {0.297, 0.55}, {0.36, 1.}, {0.408, 1.5}, {0.45, 2.}, {
+      0.526, 3.}, {0.598, 4.}, {0.662, 5.}, {0.721, 6.}, {0.781, 7.}, {0.834, 
+      8.}, {0.884, 9.}, {0.931, 10.}, {1.021, 12.}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox["\"Current (A)\"", TraditionalForm], 
+    FormBox["\"Voltage (V)\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotLabel->FormBox["\"Plot of Voltage vs. Current\"", TraditionalForm],
+  PlotRange->{{0, 1.021}, {0, 12.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.661110172580179*^9, 3.66118493066749*^9}]
+}, Open  ]],
+
+Cell["\<\
+Here, you should write a caption in a text cell like: \
+\[OpenCurlyDoubleQuote]The plot above describes the relationship between \
+voltage and current in the light bulb, etc...\[CloseCurlyDoubleQuote] Make \
+additional observations and analysis as you see fit.\
+\>", "Text",
+ CellChangeTimes->{{3.661110222473072*^9, 3.661110256693095*^9}, {
+   3.661110321346465*^9, 3.661110358480863*^9}, {3.6611103914716997`*^9, 
+   3.661110393791684*^9}, 3.661110570617169*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"RvsI", ",", 
+   RowBox[{"PlotLabel", "\[Rule]", "\"\<Plot of Resistance vs. Current\>\""}],
+    ",", 
+   RowBox[{"AxesLabel", " ", "\[Rule]", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<Current (A)\>\"", ",", "\"\<Resistance (\[CapitalOmega])\>\""}], 
+     "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.657908667798573*^9, 3.657908747297615*^9}, 
+   3.657909505042804*^9, {3.657909676107177*^9, 3.657909722999436*^9}, {
+   3.6579098884677362`*^9, 3.6579099005364647`*^9}, {3.661090780510824*^9, 
+   3.661090803514906*^9}, 3.661090941948714*^9, {3.66111014698575*^9, 
+   3.661110161090354*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{0.064, 0.78125}, {0.15, 1.}, {0.207, 1.2077294685990339`}, {
+      0.248, 1.411290322580645}, {0.276, 1.6304347826086956`}, {0.297, 
+      1.851851851851852}, {0.36, 2.7777777777777777`}, {0.408, 
+      3.6764705882352944`}, {0.45, 4.444444444444445}, {0.526, 
+      5.703422053231939}, {0.598, 6.688963210702341}, {0.662, 
+      7.552870090634441}, {0.721, 8.321775312066574}, {0.781, 
+      8.962868117797695}, {0.834, 9.59232613908873}, {0.884, 
+      10.180995475113122`}, {0.931, 10.741138560687434`}, {1.021, 
+      11.753183153770815`}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox["\"Current (A)\"", TraditionalForm], 
+    FormBox["\"Resistance (\[CapitalOmega])\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotLabel->FormBox["\"Plot of Resistance vs. Current\"", TraditionalForm],
+  PlotRange->{{0, 1.021}, {0, 11.753183153770815`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.6611101726411753`*^9, 3.66118493070579*^9}]
+}, Open  ]],
+
+Cell["Once again, make a caption describing the plot.", "Text",
+ CellChangeTimes->{{3.661110371682046*^9, 3.661110383248159*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"PvsI", ",", 
+   RowBox[{"PlotLabel", "\[Rule]", "\"\<Plot of Power vs. Current\>\""}], ",", 
+   RowBox[{"AxesLabel", " ", "\[Rule]", " ", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Current (A)\>\"", ",", "\"\<Power (W)\>\""}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.657908667798573*^9, 3.657908747297615*^9}, 
+   3.657909505042804*^9, {3.657909676107177*^9, 3.657909722999436*^9}, {
+   3.6579098884677362`*^9, 3.6579099005364647`*^9}, {3.661090780510824*^9, 
+   3.661090803514906*^9}, 3.661090941948714*^9, {3.66111014698575*^9, 
+   3.661110164453786*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{0.064, 0.0032}, {0.15, 0.0225}, {0.207, 0.05175}, {0.248, 
+      0.08679999999999999}, {0.276, 0.12420000000000002`}, {0.297, 0.16335}, {
+      0.36, 0.36}, {0.408, 0.612}, {0.45, 0.9}, {0.526, 1.578}, {0.598, 
+      2.392}, {0.662, 3.31}, {0.721, 4.326}, {0.781, 5.4670000000000005`}, {
+      0.834, 6.672}, {0.884, 7.956}, {0.931, 9.31}, {1.021, 
+      12.251999999999999`}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox["\"Current (A)\"", TraditionalForm], 
+    FormBox["\"Power (W)\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotLabel->FormBox["\"Plot of Power vs. Current\"", TraditionalForm],
+  PlotRange->{{0, 1.021}, {0, 12.251999999999999`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.6611101727058077`*^9, 3.661184930743191*^9}]
+}, Open  ]],
+
+Cell["More pithy captions and comments...", "Text",
+ CellChangeTimes->{{3.6611104059369383`*^9, 3.661110435277656*^9}}],
+
+Cell["\<\
+Be sure to make observations about your results in text cells, and perform \
+any additional calculations that the lab requires!\
+\>", "Text",
+ CellChangeTimes->{{3.657916321473977*^9, 3.657916347887561*^9}, {
+  3.657916485894668*^9, 3.6579164878145313`*^9}, {3.6610909738993664`*^9, 
+  3.66109097734267*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Write Your Conclusion!", "Section",
+ CellChangeTimes->{{3.657916358592874*^9, 3.657916378013998*^9}, {
+  3.6611850650459747`*^9, 3.6611850654758997`*^9}}],
+
+Cell["\<\
+Write your conclusion in the same way you wrote your introduction -with \
+different content of course! Be sure to spell check your document when you \
+are finished. Wasn\[CloseCurlyQuote]t this so much fun?! \[HappySmiley]\
+\>", "Text",
+ CellChangeTimes->{{3.657916386927524*^9, 3.657916400644704*^9}, {
+  3.6611013485495157`*^9, 3.661101429033288*^9}, {3.6611101100632668`*^9, 
+  3.661110111723489*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Two Things not to Forget to Attach to Your E1 Lab:\t", "Section",
+ CellChangeTimes->{{3.661185077637609*^9, 3.6611851116019583`*^9}, 
+   3.661185163091126*^9, {3.661185241324789*^9, 3.6611852473724003`*^9}}],
+
+Cell["\<\
+1) Your Part III worksheet, i.e. pages 7 and 8 from your lab manual. \
+\[HappySmiley]
+2) Your data sheet(s) for Part I. \[HappySmiley]\
+\>", "Text",
+ CellChangeTimes->{{3.6611850840052223`*^9, 3.661185084515438*^9}, {
+  3.661185117073859*^9, 3.661185143632745*^9}, {3.6611852299011908`*^9, 
+  3.661185294906406*^9}, {3.6611855289468327`*^9, 3.661185553471919*^9}, {
+  3.675681896009172*^9, 3.675681898856757*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{959, 911},
+WindowMargins->{{Automatic, 136}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 28, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 305, 4, 92, "Title"],
+Cell[888, 28, 1022, 21, 106, "Text"],
+Cell[CellGroupData[{
+Cell[1935, 53, 104, 1, 64, "Section"],
+Cell[2042, 56, 852, 14, 106, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2931, 75, 310, 8, 64, "Section"],
+Cell[3244, 85, 3146, 58, 277, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6427, 148, 328, 8, 64, "Section"],
+Cell[6758, 158, 1718, 27, 201, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8513, 190, 162, 2, 64, "Section"],
+Cell[8678, 194, 1059, 18, 125, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9774, 217, 343, 8, 64, "Section"],
+Cell[10120, 227, 3804, 71, 471, "Text"],
+Cell[CellGroupData[{
+Cell[13949, 302, 1448, 40, 119, "Input"],
+Cell[15400, 344, 311, 4, 32, "Output"],
+Cell[15714, 350, 325, 4, 32, "Output"]
+}, Open  ]],
+Cell[16054, 357, 1521, 22, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17612, 384, 172, 5, 64, "Section"],
+Cell[17787, 391, 591, 11, 68, "Text"],
+Cell[CellGroupData[{
+Cell[18403, 406, 1611, 35, 117, "Input"],
+Cell[20017, 443, 1688, 45, 75, "Output"]
+}, Open  ]],
+Cell[21720, 491, 2639, 57, 297, "Text"],
+Cell[24362, 550, 643, 18, 75, "Input"],
+Cell[25008, 570, 176, 4, 30, "Text"],
+Cell[CellGroupData[{
+Cell[25209, 578, 404, 10, 54, "Input"],
+Cell[25616, 590, 1537, 28, 345, "Output"]
+}, Open  ]],
+Cell[27168, 621, 1247, 25, 87, "Text"],
+Cell[CellGroupData[{
+Cell[28440, 650, 484, 12, 54, "Input"],
+Cell[28927, 664, 1606, 30, 363, "Output"]
+}, Open  ]],
+Cell[30548, 697, 823, 16, 106, "Text"],
+Cell[CellGroupData[{
+Cell[31396, 717, 574, 15, 54, "Input"],
+Cell[31973, 734, 6890, 249, 363, "Output"]
+}, Open  ]],
+Cell[38878, 986, 1042, 18, 125, "Text"],
+Cell[39923, 1006, 562, 9, 49, "Text"],
+Cell[CellGroupData[{
+Cell[40510, 1019, 656, 17, 138, "Input"],
+Cell[41169, 1038, 1302, 31, 245, "Output"],
+Cell[42474, 1071, 1596, 36, 245, "Output"],
+Cell[44073, 1109, 1431, 33, 245, "Output"]
+}, Open  ]],
+Cell[45519, 1145, 1379, 23, 125, "Text"],
+Cell[CellGroupData[{
+Cell[46923, 1172, 624, 13, 32, "Input"],
+Cell[47550, 1187, 1290, 31, 238, "Output"]
+}, Open  ]],
+Cell[48855, 1221, 474, 8, 49, "Text"],
+Cell[CellGroupData[{
+Cell[49354, 1233, 653, 14, 32, "Input"],
+Cell[50010, 1249, 1606, 36, 231, "Output"]
+}, Open  ]],
+Cell[51631, 1288, 129, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[51785, 1293, 616, 12, 32, "Input"],
+Cell[52404, 1307, 1416, 33, 237, "Output"]
+}, Open  ]],
+Cell[53835, 1343, 119, 1, 30, "Text"],
+Cell[53957, 1346, 318, 6, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54312, 1357, 160, 2, 64, "Section"],
+Cell[54475, 1361, 414, 7, 49, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54926, 1373, 213, 2, 64, "Section"],
+Cell[55142, 1377, 423, 8, 49, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

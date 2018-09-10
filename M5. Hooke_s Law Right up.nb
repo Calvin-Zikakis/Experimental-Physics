@@ -1,0 +1,629 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     22846,        621]
+NotebookOptionsPosition[     20573,        545]
+NotebookOutlinePosition[     21673,        580]
+CellTagsIndexPosition[     21630,        577]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["M5: Hooke\[CloseCurlyQuote]s Law and the Simple Harmonic Oscillator", \
+"Title",
+ CellChangeTimes->{{3.7017905240851564`*^9, 3.7017905430381947`*^9}}],
+
+Cell["\<\
+Calvin Zikakis
+Section 311
+Drew Morrill
+April 18th, 2017
+\
+\>", "Section",
+ CellChangeTimes->{{3.7017906743708*^9, 3.701790722837185*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Section",
+ CellChangeTimes->{{3.70179073143608*^9, 3.7017907351454*^9}}],
+
+Cell["\<\
+\tIn this lab, we used Hooke\[CloseCurlyQuote]s Law which allowed us to \
+calculate the spring constant (k) by using force applied onto the spring. We \
+also explored the effects of simple harmonic motion, which occurs whenever \
+there is a restoring force proportional to the displacement from equilibrium. \
+In order to achieve these calculations, we used various hanging weights \
+attached to springs to measure the spring constant, k. We measured the period \
+of oscillation of all of the various masses hanging on the springs. This lab \
+allowed us to better understand the concepts of simple harmonic motion and \
+Hooke\[CloseCurlyQuote]s law, two important aspects of physics. \
+\>", "Text",
+ CellChangeTimes->{{3.7017907437754755`*^9, 3.7017907489844437`*^9}, {
+   3.7017909363930225`*^9, 3.7017909801443677`*^9}, 3.7017910555277*^9, {
+   3.701791113525961*^9, 3.701791380752588*^9}, {3.70179388996914*^9, 
+   3.7017939268270226`*^9}, 3.701794411302899*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Part 1: Measurement of the Spring Constant ",
+ StyleBox["k",
+  FontSlant->"Italic"]
+}], "Section",
+ CellChangeTimes->{{3.7017913881967893`*^9, 3.701791400571238*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mspring", " ", "=", " ", "0.1605"}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{"Mass", " ", "of", " ", "Spring", " ", "in", " ", "kg"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"\[Delta]mspring", " ", "=", " ", "0.0001"}], " ", ";", 
+  RowBox[{"(*", 
+   RowBox[{"Uncertianty", " ", "in", " ", "the", " ", 
+    RowBox[{"Spring", "'"}], "s", " ", "Mass", " ", "in", " ", "kg"}], "*)"}],
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"m", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.050", ",", "0.1", ",", "0.15", ",", "0.2", ",", "0.25", ",", "0.3", 
+     ",", "0.35", ",", "0.4", ",", "0.45", ",", "0.5"}], "}"}]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{"Added", " ", "mass", " ", "in", " ", "kg"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"d", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.243", ",", "0.305", ",", "0.355", ",", "0.415", ",", "0.475", ",", 
+     "0.530", ",", "0.578", ",", "0.642", ",", "0.695", ",", "0.751"}], 
+    "}"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{"Measured", " ", "Displacement", " ", "in", " ", "m"}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"dact", " ", "=", " ", 
+   RowBox[{"d", "-", "0.211"}]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Displacement", " ", "from", " ", "0", " ", "m", " ", "in", " ", "m"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"weight", " ", "=", " ", 
+   RowBox[{"m", "*", "9.786"}]}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Weight", " ", "addaed", " ", "to", " ", "Spring", " ", "in", " ", "N"}], 
+   "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"weightdata", " ", "=", " ", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"dact", ",", "weight"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"weightdata", ",", 
+    RowBox[{
+    "PlotLabel", "\[Rule]", " ", 
+     "\"\<Weight Added to Spring vs. Displacement\>\""}], ",", 
+    RowBox[{"AxesLabel", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Weight Added \[CapitalDelta]m*g in N\>\"", ",", 
+       "\"\<Displacement from 0m in m\>\""}], "}"}]}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Code",
+ CellChangeTimes->{{3.7017914164012117`*^9, 3.7017915308425074`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{0.032, 0.4893}, {0.094, 0.9786}, {0.144, 1.4679}, {0.204, 
+      1.9572}, {0.264, 2.4465}, {0.31900000000000006`, 2.9358}, {0.367, 
+      3.4250999999999996`}, {0.43100000000000005`, 3.9144}, {0.484, 4.4037}, {
+      0.54, 4.893}}]}, {}}, {}, {}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox["\"Weight Added \[CapitalDelta]m*g in N\"", TraditionalForm], 
+    FormBox["\"Displacement from 0m in m\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+   "\"Weight Added to Spring vs. Displacement\"", TraditionalForm],
+  PlotRange->{{0, 0.54}, {0, 4.893}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.7017915467693243`*^9}]
+}, Open  ]],
+
+Cell["\<\
+The masses look like they perfectly correspond with our collected \
+displacements. There seems to be no random error in my graph. My graph should \
+look like a linear function as it does due to Hooke\[CloseCurlyQuote]s law \
+being a linear function. There is not enough data to tell if there was a \
+systematic error, but by looking at the graph we can see that the data was \
+relatively accurate. The slope of this line should be our spring constant. \
+\>", "Text",
+ CellChangeTimes->{{3.7017917960105953`*^9, 3.7017920203974533`*^9}, {
+  3.7017920889792423`*^9, 3.701792104441615*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"kdata", " ", "=", " ", 
+   RowBox[{"weight", "/", "dact"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"List", " ", "of", " ", "k", " ", "Values"}], "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kavg", " ", "=", 
+   FractionBox[
+    RowBox[{"(", " ", 
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", 
+       RowBox[{"i", "=", "1"}], 
+       RowBox[{"Length", "[", "kdata", "]"}]], 
+      RowBox[{"kdata", "[", 
+       RowBox[{"[", "i", "]"}], "]"}]}], ")"}], 
+    RowBox[{"Length", "[", "kdata", "]"}]]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Average", " ", "Value", " ", "of", " ", "k", " ", "in", " ", 
+    RowBox[{"N", "/", "m"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ksd", " ", "=", " ", 
+   SqrtBox[
+    FractionBox[
+     RowBox[{"(", 
+      RowBox[{
+       UnderoverscriptBox["\[Sum]", 
+        RowBox[{"i", "=", "1"}], 
+        RowBox[{"Length", "[", "kdata", "]"}]], 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"kdata", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "-", "kavg"}], ")"}], "2"]}], 
+      ")"}], 
+     RowBox[{
+      RowBox[{"Length", "[", "kdata", "]"}], "-", "1"}]]]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{"Standard", " ", "Deviation", " ", "of", " ", "k", " ", "in", " ", 
+    RowBox[{"N", "/", "m"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"ksdom", " ", "=", " ", 
+   RowBox[{"ksd", "/", 
+    SqrtBox[
+     RowBox[{"Length", "[", "kdata", "]"}]], 
+    RowBox[{"(*", 
+     RowBox[{
+     "Standard", " ", "on", " ", "the", " ", "Mean", " ", "of", " ", "k", " ",
+       "in", " ", 
+      RowBox[{"N", "/", "m"}]}], "*)"}]}]}]}]}], "Code",
+ CellChangeTimes->{3.701792119108568*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "15.290625`", ",", "10.41063829787234`", ",", "10.19375`", ",", 
+   "9.594117647058825`", ",", "9.267045454545453`", ",", "9.203134796238244`",
+    ",", "9.332697547683923`", ",", "9.08213457076566`", ",", 
+   "9.098553719008265`", ",", "9.06111111111111`"}], "}"}]], "Output",
+ CellChangeTimes->{3.701792127660112*^9}],
+
+Cell[BoxData["10.053380814428383`"], "Output",
+ CellChangeTimes->{3.7017921276611147`*^9}],
+
+Cell[BoxData["0.60080709518905`"], "Output",
+ CellChangeTimes->{3.701792127662117*^9}]
+}, Open  ]],
+
+Cell["\<\
+Using my data from the calculations would give us a K value of (10.1  \
+\[PlusMinus]  0.6) N/m. The error on this value seems a bit high, but overall \
+I would conclude that this value is relatively accurate. Without any known \
+value to compare my result to, we have to conclude this result is reasonable. \
+This high error is most-likely systematic due to human error on measuring the \
+distance the spring has fallen. The length function used in the code above \
+computes the amount of data points in an array. \
+\>", "Text",
+ CellChangeTimes->{{3.7017921434837985`*^9, 3.7017921773866067`*^9}, {
+  3.701792218121134*^9, 3.701792475329861*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part 2: Measurement of the Period", "Section",
+ CellChangeTimes->{3.7017925340685825`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"m2", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{"0.1", ",", "0.2", ",", "0.3"}], "}"}]}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{"Hooked", " ", "Masses", " ", "Mass", " ", "in", " ", "kg"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Tavg", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{"0.8208", ",", "1.0338", ",", "1.2246"}], "}"}]}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Average", " ", "Period", " ", "of", " ", "50", " ", "Oscillations", " ", 
+     "in", " ", "s"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"meff", " ", "=", " ", 
+    RowBox[{"m2", "+", 
+     RowBox[{"(", 
+      RowBox[{"0.281", "*", "mspring"}], ")"}]}]}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{"Effective", " ", "Mass", " ", "in", " ", "kg"}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"Tcalc", " ", "=", " ", 
+    RowBox[{"2", "\[Pi]", 
+     SqrtBox[
+      RowBox[{"meff", "/", "kavg"}]]}]}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Calculated", " ", "Period", " ", "in", " ", "s"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Delta]Tcalc", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"Tcalc", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["1", "2"], "*", 
+         FractionBox["0.0001", 
+          RowBox[{"meff", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]]}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["1", "2"], "*", 
+         FractionBox["ksdom", "kavg"]}], ")"}], "2"]}]]}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Uncertianty", " ", "on", " ", "T", " ", "for", " ", "the", " ", "first", 
+    " ", "point", " ", "in", " ", "s"}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"\[Delta]Tcalc", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"Tcalc", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["1", "2"], "*", 
+         FractionBox["0.0001", 
+          RowBox[{"meff", "[", 
+           RowBox[{"[", "2", "]"}], "]"}]]}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["1", "2"], "*", 
+         FractionBox["ksdom", "kavg"]}], ")"}], "2"]}]]}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Uncertianty", " ", "on", " ", "T", " ", "for", " ", "the", " ", "second", 
+    " ", "point", " ", "in", " ", "s"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Delta]Tcalc", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"Tcalc", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["1", "2"], "*", 
+         FractionBox["0.0001", 
+          RowBox[{"meff", "[", 
+           RowBox[{"[", "3", "]"}], "]"}]]}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["1", "2"], "*", 
+         FractionBox["ksdom", "kavg"]}], ")"}], "2"]}]]}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Uncertianty", " ", "on", " ", "T", " ", "for", " ", "the", " ", "third", 
+    " ", "point", " ", "in", " ", "s"}], "*)"}]}], "\n"}], "Code",
+ CellChangeTimes->{{3.701792543822717*^9, 3.70179255151712*^9}, {
+  3.7017926121636195`*^9, 3.701792622251834*^9}, {3.701792678172595*^9, 
+  3.7017927573618746`*^9}, {3.701792797325653*^9, 3.7017928101908417`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.7548458227380229`", ",", "0.9810607482480302`", ",", 
+   "1.1641169045250255`"}], "}"}]], "Output",
+ CellChangeTimes->{3.701792816565816*^9}],
+
+Cell[BoxData["0.022556933326974442`"], "Output",
+ CellChangeTimes->{3.701792816566818*^9}],
+
+Cell[BoxData["0.022555959194520036`"], "Output",
+ CellChangeTimes->{3.7017928165678215`*^9}],
+
+Cell[BoxData["0.022555698706291608`"], "Output",
+ CellChangeTimes->{3.701792816568825*^9}]
+}, Open  ]],
+
+Cell["\<\
+For the 100g mass, the calculated period is (0.76 \[PlusMinus] 0.02) s.
+For the 200g mass, the calculated period is (0.98 \[PlusMinus] 0.02) s.
+For the 300g mass, the calculated period is (1.16 \[PlusMinus] 0.02) s.\
+\>", "Text",
+ CellChangeTimes->{{3.7017928380606084`*^9, 3.7017929391400347`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Tdata", " ", "=", " ", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"Tavg", ",", "Tcalc"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"TPlot", " ", "=", " ", 
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"Plot", "[", 
+     RowBox[{"x", ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "0", ",", "1.8"}], "}"}]}], "]"}], ",", 
+    RowBox[{"ListPlot", "[", "Tdata", "]"}], ",", 
+    RowBox[{
+    "PlotLabel", "\[Rule]", " ", 
+     "\"\<Plot of the Measured Period vs. the Caclulated Period\>\""}], ",", 
+    RowBox[{"AxesLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Measured Period in s\>\"", ",", 
+       "\"\<Calculated Period 2\[Pi]\!\(\*SqrtBox[\(meff/k\)]\) in s\>\""}], 
+      "}"}]}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Rvalue", " ", "=", " ", 
+  RowBox[{"Tavg", "/", "Tcalc"}]}]}], "Code",
+ CellChangeTimes->{3.7017929573317194`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{{{}, {}, 
+     TagBox[
+      {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], 
+       Opacity[1.], LineBox[CompressedData["
+1:eJxFxWlMknEcAGAw52YpSsULq4x5ZTXNWliWN9OcLFzaZmlM0obHVuE60LSs
+tQptSyyz6RpLkVCbWjKnZooOZ05BI/KIemOJeTDFlCzBA6sP/v4fnj3uqfx4
+nh2BQGD/8/8lnzjP3tYLoRs3S6i0GCozbOPtnEKZOzUe7g5UmpypqfCO6mSy
+PfUKfELv67mO3YVx67a6VewJXC0UZq1gEviIONu+UyeHFWWkChmxHa40BM/0
+3VLCgRXsFx6cXtgw55IXO6WCs+QjR+cyNXDDjS9lzUNaWODY8miaMgxP+xJF
+KuEo/IPm5UXT6GA6eZU+6YTD9uKIvbxcPfzW4m/Yw/0O98xeb75aPgYvpGGh
+xEEDnBpVJeo2jcM1prR0vfcEfHgZczwQMwmXaNYOjtybgrf6hTl1tk3DI6aL
+jfhXI8zP+YjHU2ZgdrqHdu3YLMzCB3KNZ02w2843tX7FczBDkS+RyX/CxRSl
+a7tgHsZczPuiyAuw4jitJqMSHadKzGwNMcMORY9Fkg9oVYnApT75F5xnE2jH
+rWj280vLTQ8X4c3i2zy5z2/YqBEGsNrQn6NDuHasP3CjJ0k9OYGuPzQs5mUv
+wSXSFrkrxQIXJkW746/RlcyBxYhwKywVXd4yhKP7SA5CAn8ZtmlYHLYNvdvy
+6tr78hX4fBzRrNu/Cnc5R3Wk+KHp/QUFRn+0nulKtzLQHAb9JC0MfYYaIks4
+jY79lpP0KQ/dUN7ufS4f7ZxAWDDcQasHhULzfXRM17MmcjE6sqqJdEqKlnIt
+ulEZetOu4JfcWrTyaXcQvwEd/kCbUdSKrmBiDOwdet2WuC7uQCuyx0rrlWg3
+hndKQA/65nyGb0cvGq+rW4rsRwdlzivVavRfsqt5iw==
+        "]]},
+      Annotation[#, "Charting`Private`Tag$1559#1"]& ]}, {}, {}}, {{}, {{}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.012833333333333334`], AbsoluteThickness[1.6], 
+      PointBox[{{0.8208, 0.7548458227380229}, {1.0338, 0.9810607482480302}, {
+       1.2246, 1.1641169045250255`}}]}, {}}, {}, {}, {{}, {}}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox["\"Measured Period in s\"", TraditionalForm], 
+    FormBox[
+    "\"Calculated Period 2\[Pi]\\!\\(\\*SqrtBox[\\(meff/k\\)]\\) in s\"", 
+     TraditionalForm]},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+   "\"Plot of the Measured Period vs. the Caclulated Period\"", 
+    TraditionalForm],
+  PlotRange->{{0, 1.8}, {0., 1.799999963265306}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.7017929588296967`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1.0873743687455857`", ",", "1.0537573762339907`", ",", 
+   "1.051956204089015`"}], "}"}]], "Output",
+ CellChangeTimes->{3.701792958836687*^9}]
+}, Open  ]],
+
+Cell["\<\
+This graph shows the relationship between measured and calculated period. The \
+line seems to fit my data well but with a small amount of systematic error \
+that can be seen by the points laying slightly under the line. This error \
+could be from a number of things, but most-likely it stems from timing error. \
+The Rvalue is the ratio of recorded value to calculated value. The further \
+the Rvalue is from 1, the worse the data is. My data points all have Rvalues \
+relatively close to one meaning all of the values are close to the actual \
+values. \
+\>", "Text",
+ CellChangeTimes->{{3.7017929781818695`*^9, 3.701793191074459*^9}, {
+  3.701793521575325*^9, 3.701793585809245*^9}, {3.7017938328589277`*^9, 
+  3.701793832946878*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conclusion", "Section",
+ CellChangeTimes->{{3.7017935946009417`*^9, 3.701793596846582*^9}}],
+
+Cell["\<\
+In conclusion, this lab helped our understanding of simple harmonic motion \
+and Hooke\[CloseCurlyQuote]s law of a spring. By measuring the displaced \
+distance of the spring when applying various masses, we were able to use our \
+data to calculate the spring constant, \[OpenCurlyDoubleQuote]k\
+\[CloseCurlyDoubleQuote]. Then we ere able to use the k values we calculated \
+to find theoretical periods for the spring and varying mass system. These \
+calculations helped to check that our observations of average periods were in \
+fact correct. My data returned a systematic error of my measured points being \
+lower than my theoretical line. I believe this error was due to the \
+relatively high error in the initial calculation of my spring constant, \
+\[OpenCurlyDoubleQuote]k\[CloseCurlyDoubleQuote]. If my measured spring \
+constant data was better, I assume that my data points would have fallen \
+perfectly on the line. Overall, this systematic error was the only major \
+error in my data.  \
+\>", "Text",
+ CellChangeTimes->{{3.7017938513291206`*^9, 3.7017938733429184`*^9}, {
+  3.7017939680692215`*^9, 3.701794388506133*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1278, 1348},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+PrintingStartingPageNumber->1,
+PageHeaders->{{None, None, 
+   Cell[
+    TextData[{"Calvin", " ", "Zikakis", " ", "|", " ", 
+      CounterBox["Page", CounterFunction :> Identity]}], "Header", 
+    CellMargins -> {{Inherited, 0}, {Inherited, Inherited}}]}, {None, None, 
+   Cell[
+    TextData[{
+      StyleBox[
+       RowBox[{"Calvin", " ", "Zikakis"}], "Header"], " ", "|", "  ", 
+      StyleBox[
+       CounterBox["Page"], "PageNumber"]}], "Header", 
+    CellMargins -> {{Inherited, 0}, {Inherited, Inherited}}]}},
+PageFooters->{{None, None, None}, {None, None, None}},
+PageHeaderLines->{False, False},
+PageFooterLines->{False, False},
+PrintingOptions->{"FacingPages"->False,
+"FirstPageFace"->Right,
+"FirstPageFooter"->False,
+"FirstPageHeader"->True},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 156, 2, 90, "Title"],
+Cell[739, 26, 148, 7, 199, "Section"],
+Cell[CellGroupData[{
+Cell[912, 37, 94, 1, 49, "Section"],
+Cell[1009, 40, 975, 14, 87, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2021, 59, 184, 5, 63, "Section"],
+Cell[CellGroupData[{
+Cell[2230, 68, 2314, 57, 267, "Code"],
+Cell[4547, 127, 1797, 41, 170, "Output"]
+}, Open  ]],
+Cell[6359, 171, 597, 9, 68, "Text"],
+Cell[CellGroupData[{
+Cell[6981, 184, 1730, 50, 207, "Code"],
+Cell[8714, 236, 361, 7, 30, "Output"],
+Cell[9078, 245, 90, 1, 30, "Output"],
+Cell[9171, 248, 86, 1, 30, "Output"]
+}, Open  ]],
+Cell[9272, 252, 657, 10, 68, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9966, 267, 96, 1, 63, "Section"],
+Cell[CellGroupData[{
+Cell[10087, 272, 3491, 101, 351, "Code"],
+Cell[13581, 375, 186, 5, 30, "Output"],
+Cell[13770, 382, 90, 1, 30, "Output"],
+Cell[13863, 385, 92, 1, 30, "Output"],
+Cell[13958, 388, 90, 1, 30, "Output"]
+}, Open  ]],
+Cell[14063, 392, 309, 5, 68, "Text"],
+Cell[CellGroupData[{
+Cell[14397, 401, 941, 26, 97, "Code"],
+Cell[15341, 429, 2976, 65, 173, "Output"],
+Cell[18320, 496, 185, 5, 30, "Output"]
+}, Open  ]],
+Cell[18520, 504, 745, 12, 68, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19302, 521, 97, 1, 63, "Section"],
+Cell[19402, 524, 1143, 17, 106, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

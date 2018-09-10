@@ -1,0 +1,730 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     28910,        722]
+NotebookOptionsPosition[     26911,        657]
+NotebookOutlinePosition[     28103,        693]
+CellTagsIndexPosition[     28060,        690]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["O3: Snell\[CloseCurlyQuote]s Law and the Index of Refraction", "Title",
+ CellChangeTimes->{{3.6973693228443174`*^9, 3.697369355498375*^9}, 
+   3.6973693899804335`*^9}],
+
+Cell["\<\
+Calvin Zikakis
+Section 311
+Drew Morrill
+March 1 2017\
+\>", "Text",
+ CellChangeTimes->{{3.6973693938395495`*^9, 3.6973694097759776`*^9}, {
+  3.6973697843510103`*^9, 3.697369853446746*^9}, {3.697369982612877*^9, 
+  3.697369985066124*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Section",
+ CellChangeTimes->{{3.697369937828908*^9, 3.697369940860343*^9}}],
+
+Cell["\<\
+\tThe bending of light when traveling from one median to a different median \
+is determined by Snell\[CloseCurlyQuote]s Law. In this lab, we investigated \
+how light bends when traveling from air to plastic to air. In order to test \
+Snell\[CloseCurlyQuote]s Law, we used a semicircular Lucite lens and a \
+circular platform with an angle scale along its perimeter. A slit on the \
+platform allowed a ray of light to enter the through the lens and create a \
+projection on the angle scale. Next we took data at different measurements in \
+order to get an average value of the index of refraction based off the angles \
+of refraction. Snell\[CloseCurlyQuote]s Law allows us to be able to calculate \
+this index with n = sin\[CapitalTheta] / sin\[CapitalTheta]. Part 2 of the \
+lab consisted of measuring the values of n at the extreme red and violet ends \
+of the visible spectrum. These measurements allowed us to estimate the \
+wavelengths of red, yell, and violet light. \
+\>", "Text",
+ CellChangeTimes->{{3.6973700791343613`*^9, 3.6973700832283607`*^9}, {
+  3.697370121058781*^9, 3.697370429448112*^9}, {3.697370474616659*^9, 
+  3.6973705509079185`*^9}, {3.697370596016307*^9, 3.6973707034711885`*^9}, {
+  3.6973707626908464`*^9, 3.697370896943884*^9}, {3.697372885317621*^9, 
+  3.697372901411834*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part 1: Index of Refraction of Lucite/Glass", "Section",
+ CellChangeTimes->{{3.6973709072568755`*^9, 3.6973709346175594`*^9}, 
+   3.6973710185590715`*^9, 3.697372913505932*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Theta]adeg", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "5", ",", " ", "10", ",", " ", "15", ",", " ", "20", ",", " ", "25", ",",
+       " ", "30", ",", " ", "35", ",", " ", "40", ",", " ", "45", ",", " ", 
+      "50", ",", " ", "55", ",", " ", "60", ",", " ", "65", ",", " ", "70", 
+      ",", " ", "75"}], "}"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Air", " ", "Angles", " ", "in", " ", "Degrees"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Theta]pdeg", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "3.5", ",", " ", "6.8", ",", " ", "10", ",", " ", "13.3", ",", " ", 
+      "16.6", ",", " ", "19.8", ",", " ", "22.7", ",", " ", "25.5", ",", " ", 
+      "28.5", ",", " ", "31", ",", " ", "33.5", ",", " ", "35.5", ",", " ", 
+      "37.5", ",", " ", "39.2", ",", " ", "40.3"}], "}"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Plastic", " ", "Angles", " ", "in", " ", "Degrees"}], "*)"}], 
+  "\n", "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Theta]arad", " ", "=", " ", 
+    RowBox[{"\[Theta]adeg", "*", 
+     RowBox[{"(", 
+      RowBox[{"\[Pi]", "/", "180"}], ")"}]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Air", " ", "Angles", " ", "in", " ", "Radians"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Theta]prad", " ", "=", " ", 
+    RowBox[{"\[Theta]pdeg", "*", 
+     RowBox[{"(", 
+      RowBox[{"\[Pi]", "/", "180"}], ")"}]}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Plastic", " ", "Angles", " ", "in", " ", "Radians"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"n", "  ", "=", " ", 
+    RowBox[{
+     RowBox[{"Sin", "[", "\[Theta]arad", "]"}], "/", 
+     RowBox[{"Sin", "[", "\[Theta]prad", "]"}]}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Index", " ", "of", " ", "Refraction"}], "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"navg", " ", "=", 
+   FractionBox[
+    RowBox[{"(", " ", 
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", 
+       RowBox[{"i", "=", "1"}], 
+       RowBox[{"Length", "[", "n", "]"}]], 
+      RowBox[{"n", "[", 
+       RowBox[{"[", "i", "]"}], "]"}]}], ")"}], 
+    RowBox[{"Length", "[", "n", "]"}]]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Average", " ", "n"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nstv", " ", "=", " ", 
+   SqrtBox[
+    FractionBox[
+     RowBox[{"(", 
+      RowBox[{
+       UnderoverscriptBox["\[Sum]", 
+        RowBox[{"i", "=", "1"}], 
+        RowBox[{"Length", "[", "n", "]"}]], 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"n", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "-", "navg"}], ")"}], "2"]}], 
+      ")"}], 
+     RowBox[{
+      RowBox[{"Length", "[", "n", "]"}], "-", "1"}]]]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nsdom", " ", "=", " ", 
+   RowBox[{"nstv", "/", 
+    SqrtBox[
+     RowBox[{"Length", "[", "n", "]"}]]}]}], 
+  RowBox[{"(*", 
+   RowBox[{"Uncertianty", " ", "on", " ", "n"}], "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Theta]avs\[Theta]p", " ", "=", " ", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{"\[Theta]pdeg", ",", "\[Theta]adeg"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Sin\[Theta]avsSin\[Theta]p", " ", "=", " ", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Sin", "[", "\[Theta]prad", "]"}], ",", 
+      RowBox[{"Sin", "[", "\[Theta]arad", "]"}]}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nvs\[Theta]a", " ", "=", " ", 
+    RowBox[{"Thread", "[", 
+     RowBox[{"{", 
+      RowBox[{"\[Theta]arad", ",", "n"}], "}"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"\[Theta]avs\[Theta]p", ",", 
+   RowBox[{
+   "PlotLabel", "\[Rule]", "\"\<Angles in Air vs. Angles in Lucite\>\""}], 
+   ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<Angles in Lucite in Degrees\>\"", ",", 
+      "\"\<Angles in Air in Degrees\>\""}], "}"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"Sin\[Theta]avsSin\[Theta]p", ",", 
+   RowBox[{
+   "PlotLabel", "\[Rule]", "\"\<Angles in Air vs. Angles in Lucite\>\""}], 
+   ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<Sine of Angles in Lucite\>\"", ",", 
+      "\"\<Sine ofAngles in Air\>\""}], "}"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"nvs\[Theta]a", ",", 
+   RowBox[{
+   "PlotLabel", "\[Rule]", "\"\<Index of Refraction vs Incident Angle\>\""}], 
+   ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Incident angle in Radians\>\"", ",", "\"\<Index n\>\""}], 
+     "}"}]}]}], "]"}], "\[IndentingNewLine]"}], "Code",
+ CellChangeTimes->{{3.697371028684504*^9, 3.6973713442143*^9}, {
+   3.6973713923229003`*^9, 3.6973713929322095`*^9}, {3.697371469102907*^9, 
+   3.6973714703216352`*^9}, {3.6973716058508873`*^9, 3.697371606272764*^9}, {
+   3.6973716412114797`*^9, 3.6973718320150423`*^9}, 3.6973719260188046`*^9, {
+   3.697372130311136*^9, 3.6973721309517937`*^9}, {3.697373542002914*^9, 
+   3.6973735485345173`*^9}}],
+
+Cell[BoxData["1.481326729997649`"], "Output",
+ CellChangeTimes->{{3.6973714248067117`*^9, 3.697371426291046*^9}, 
+   3.6973714712121964`*^9, 3.6973718454998894`*^9, {3.69737189392348*^9, 
+   3.6973719027050347`*^9}, 3.697372132592507*^9, {3.6973735435342207`*^9, 
+   3.6973735488626337`*^9}}],
+
+Cell[BoxData["0.004244382598082343`"], "Output",
+ CellChangeTimes->{{3.6973714248067117`*^9, 3.697371426291046*^9}, 
+   3.6973714712121964`*^9, 3.6973718454998894`*^9, {3.69737189392348*^9, 
+   3.6973719027050347`*^9}, 3.697372132592507*^9, {3.6973735435342207`*^9, 
+   3.697373548878261*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{3.5, 5.}, {6.8, 10.}, {10., 15.}, {13.3, 20.}, {16.6, 25.}, {
+      19.8, 30.}, {22.7, 35.}, {25.5, 40.}, {28.5, 45.}, {31., 50.}, {33.5, 
+      55.}, {35.5, 60.}, {37.5, 65.}, {39.2, 70.}, {40.3, 75.}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox["\"Angles in Lucite in Degrees\"", TraditionalForm], 
+    FormBox["\"Angles in Air in Degrees\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+   "\"Angles in Air vs. Angles in Lucite\"", TraditionalForm],
+  PlotRange->{{0, 40.3}, {0, 75.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.6973714248067117`*^9, 3.697371426291046*^9}, 
+   3.6973714712121964`*^9, 3.6973718454998894`*^9, {3.69737189392348*^9, 
+   3.6973719027050347`*^9}, 3.697372132592507*^9, {3.6973735435342207`*^9, 
+   3.697373548893885*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{0.06104853953485687, 0.08715574274765818}, {
+      0.11840396830650095`, 0.17364817766693036`}, {0.17364817766693036`, 
+      0.25881904510252074`}, {0.23004973718810443`, 0.3420201433256687}, {
+      0.28568836740497355`, 0.42261826174069944`}, {0.3387379202452914, 
+      0.5}, {0.38590604232431863`, 0.573576436351046}, {0.4305110968082951, 
+      0.6427876096865394}, {0.4771587602596084, 0.7071067811865476}, {
+      0.5150380749100542, 0.766044443118978}, {0.5519369853120581, 
+      0.8191520442889918}, {0.5807029557109398, 0.8660254037844386}, {
+      0.6087614290087207, 0.9063077870366499}, {0.6320293026648509, 
+      0.9396926207859084}, {0.6467897795104595, 
+      0.9659258262890683}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox["\"Sine of Angles in Lucite\"", TraditionalForm], 
+    FormBox["\"Sine ofAngles in Air\"", TraditionalForm]},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+   "\"Angles in Air vs. Angles in Lucite\"", TraditionalForm],
+  PlotRange->{{0, 0.6467897795104595}, {0, 0.9659258262890683}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.6973714248067117`*^9, 3.697371426291046*^9}, 
+   3.6973714712121964`*^9, 3.6973718454998894`*^9, {3.69737189392348*^9, 
+   3.6973719027050347`*^9}, 3.697372132592507*^9, {3.6973735435342207`*^9, 
+   3.697373548925139*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{0.08726646259971647, 1.427646646614615}, {
+      0.17453292519943295`, 1.466573968343899}, {0.26179938779914946`, 
+      1.4904794774118173`}, {0.3490658503988659, 1.4867225996698687`}, {
+      0.4363323129985824, 1.4792981092633108`}, {0.5235987755982989, 
+      1.4760673964046698`}, {0.6108652381980153, 1.486311105408937}, {
+      0.6981317007977318, 1.493080235218118}, {0.7853981633974483, 
+      1.4819109279306344`}, {0.8726646259971648, 1.4873549751690869`}, {
+      0.9599310885968813, 1.4841405198201272`}, {1.0471975511965979`, 
+      1.4913397551493186`}, {1.1344640137963142`, 1.4887733418203584`}, {
+      1.2217304763960306`, 1.4867864778165256`}, {1.3089969389957472`, 
+      1.4934154139234477`}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox["\"Incident angle in Radians\"", TraditionalForm], 
+    FormBox["\"Index n\"", TraditionalForm]},
+  AxesOrigin->{0, 1.4525009679424734`},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+   "\"Index of Refraction vs Incident Angle\"", TraditionalForm],
+  PlotRange->{{0, 1.3089969389957472`}, {1.4544492748939484`, 
+    1.4934154139234477`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.6973714248067117`*^9, 3.697371426291046*^9}, 
+   3.6973714712121964`*^9, 3.6973718454998894`*^9, {3.69737189392348*^9, 
+   3.6973719027050347`*^9}, 3.697372132592507*^9, {3.6973735435342207`*^9, 
+   3.6973735489407635`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+\tHence the measured index of refraction of Lucite is 1.481 \[PlusMinus] \
+0.004. The graphs show a clear pattern in the data, graph one demonstrates \
+how the angle of light in air varies from the angle in Lucite. Graph 2 shows \
+the linear relationship between the sine of angles in the air vs the sine of \
+angles in Lucite. Finally graph 3 demonstrates how the index of refraction \
+measured varies at different angles. Graph 3 is supposed to be a straight \
+line but has variation due to measurement error. \
+\>", "Text",
+ CellChangeTimes->{{3.6973723623512955`*^9, 3.697372795430032*^9}, {
+   3.697372834962445*^9, 3.6973728612600765`*^9}, {3.6973729158809996`*^9, 
+   3.6973729604678817`*^9}, {3.6973734880468903`*^9, 3.697373492234618*^9}, 
+   3.697373565894864*^9, {3.6973737247316055`*^9, 3.697373739404278*^9}, 
+   3.6973740458816013`*^9, {3.697374509571297*^9, 3.697374578505481*^9}, 
+   3.6974679215277433`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part 2: Dispersion of Lucite/Glass", "Section",
+ CellChangeTimes->{{3.697372984375127*^9, 3.6973729883909187`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Theta]p2deg", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{"42.0", ",", "40.0", ",", "35.0"}], "}"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Incident", " ", "Angle", " ", "in", " ", "Degrees"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Theta]Reddeg", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{"72.5", ",", "73.0", ",", "57.8"}], "}"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Red", " ", "Refracted", " ", "Band", " ", "in", " ", "Degrees"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Theta]Viodeg", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{"75.3", ",", "76.5", ",", "59.3"}], "}"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Violet", " ", "Refracted", " ", "Band", " ", "in", " ", "Degrees"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Theta]p2rad", " ", "=", " ", 
+    RowBox[{"\[Theta]p2deg", "*", 
+     RowBox[{"(", 
+      RowBox[{"\[Pi]", "/", "180"}], ")"}]}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Incident", " ", "Angle", " ", "in", " ", "Radians"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Theta]Redrad", "=", " ", 
+    RowBox[{"\[Theta]Reddeg", "*", 
+     RowBox[{"(", 
+      RowBox[{"\[Pi]", "/", "180"}], ")"}]}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Red", " ", "Refracted", " ", "Band", " ", "in", " ", "Radians"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Theta]Viorad", "=", " ", 
+    RowBox[{"\[Theta]Viodeg", "*", 
+     RowBox[{"(", 
+      RowBox[{"\[Pi]", "/", "180"}], ")"}]}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "Violet", " ", "Refracted", " ", "Band", " ", "in", " ", "Radians"}], 
+   "*)"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nred", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"Sin", "[", "\[Theta]Redrad", "]"}], "/", 
+     RowBox[{"Sin", "[", "\[Theta]p2rad", "]"}]}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Index", " ", "for", " ", "Red", " ", "light"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nvio", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"Sin", "[", "\[Theta]Viorad", "]"}], "/", 
+     RowBox[{"Sin", "[", "\[Theta]p2rad", "]"}]}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Index", " ", "for", " ", "Violet", " ", "Light"}], "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nravg", " ", "=", " ", 
+    FractionBox[
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", 
+       RowBox[{"i", "=", "1"}], 
+       RowBox[{"Length", "[", "nred", "]"}]], 
+      RowBox[{"nred", "[", 
+       RowBox[{"[", "i", "]"}], "]"}]}], 
+     RowBox[{"Length", "[", "nred", "]"}]]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Average", " ", "Index", " ", "for", " ", "Red", " ", "Light"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nvioavg", " ", "=", " ", 
+    FractionBox[
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", 
+       RowBox[{"i", "=", "1"}], 
+       RowBox[{"Length", "[", "nred", "]"}]], 
+      RowBox[{"nvio", "[", 
+       RowBox[{"[", "i", "]"}], "]"}]}], 
+     RowBox[{"Length", "[", "nvio", "]"}]]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Average", " ", "Index", " ", "for", " ", "Violet", " ", "Light"}],
+    "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nyellow", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"nravg", "+", "nvioavg"}], ")"}], "/", "2"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Average", " ", "Index", " ", "for", " ", "Yellow", " ", "Light"}],
+    "*)"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nvs\[Lambda]", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"390", ",", "nvioavg"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"590", ",", "nyellow"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"655", ",", "nravg"}], "}"}]}], "}"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"n", " ", "vs", " ", "Wavlength", " ", 
+    RowBox[{"(", "nm", ")"}], " ", "Data"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"nvs\[Lambda]", ",", 
+   RowBox[{
+   "PlotLabel", "\[Rule]", "\"\<Index of Refraction vs. Wavelength\>\""}], 
+   ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Wavlength in nm\>\"", ",", "\"\<Index of Refraction\>\""}], 
+     "}"}]}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"PointSize", "[", "0.03", "]"}]}]}], "]"}]}], "Code",
+ CellChangeTimes->{
+  3.6973730199078274`*^9, {3.697373227463502*^9, 3.6973732366514997`*^9}, {
+   3.6973732740285263`*^9, 3.69737340266726*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.03], 
+     AbsoluteThickness[1.6], 
+     PointBox[{{390., 1.4858015717573014`}, {590., 1.4742918653211181`}, {
+      655., 1.4627821588849348`}}]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox["\"Wavlength in nm\"", TraditionalForm], 
+    FormBox["\"Index of Refraction\"", TraditionalForm]},
+  AxesOrigin->{385.859375, 1.4616311882413167`},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox[
+   "\"Index of Refraction vs. Wavelength\"", TraditionalForm],
+  PlotRange->{{390., 655.}, {1.4627821588849348`, 1.4858015717573014`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.6973734062298965`*^9}]
+}, Open  ]],
+
+Cell["\<\
+\tMy graph shows how index of refraction changes depending on wavelength. The \
+indexes are very close in size, but I believe my data was measured well \
+enough to provide evidence towards index of refraction being related to \
+wavelength.\
+\>", "Text",
+ CellChangeTimes->{{3.6973738153302717`*^9, 3.6973739442278833`*^9}, 
+   3.697374043756484*^9, 3.697467917317896*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conclusion", "Section",
+ CellChangeTimes->{{3.6973739661040754`*^9, 3.6973739702605515`*^9}, 
+   3.697374036084196*^9}],
+
+Cell["\<\
+\tIn conclusion, this lab showed us an effective method for measuring an \
+index of refraction. Using Snell\[CloseCurlyQuote]s law, light, and an angle \
+scale, we were able to estimate the index of Lucite to 1.481 \[PlusMinus] \
+0.004. Lucite has an index of 1.4896 \[PlusMinus] 0.0001 giving our \
+measurement a discrepancy of | 1.4896 - 1.481 | = 0.0086 which means the real \
+value is 2.15 standard deviations away from our measurement value. The error \
+in our estimated index value was 0.004 and the error of the accepted value is \
+0.0001. We can calculate the total error by \[Sqrt]((0.0001)^2 + (0.004)^2) = \
+0.004.  Multiply this value by 3 in order to see if our measurements agree, \
+0.004 * 3  = 0.012. Because 0.012 > .0086, we can conclude that these values \
+agree and attribute the slight difference in values to measurement error. \
+This measurement error can come from a variety of things including the Lucite \
+lens, it was hard to get perfectly center resulting in data that was not as \
+accurate as it could be. Another factor that could have contributed to our \
+error is reading the angle scale, the scale was not as precise as something \
+such as a digital protractor would have been which contributed more to the \
+measurement error. This lab showed the relationship between the index of \
+refraction and the angle at which light is reflected, a higher index will \
+make light refract at a much lower angle than it entered while a lower index \
+makes light refract at a higher angle than the entry. 
+
+\tIn part 2 of the lab, we measured that different wavelengths of light \
+refract at different angles when going through a new median. This helps to \
+explain how rainbows are formed by showing that when light reflects though a \
+rain drop, the wavelengths can all reflect at different angles producing a \
+prism effect when the light exits the drop. We also saw that different \
+wavelengths of light refract at different indexes. Violet had the highest \
+index of refraction in our testing at 1.485 while red had the lowest at \
+1.461, yellow then fell in the middle of the range with an index of \
+refraction of 1.475. Different wavelengths refract differently because the \
+speed of light in the median is a function of frequency (and index of \
+refraction is just how quickly light is able to travel in a median when \
+compared to air) which results in shorter wavelengths refracting more.\
+\>", "Text",
+ CellChangeTimes->{
+  3.697374041881381*^9, {3.6973740848754716`*^9, 3.6973744949470034`*^9}, {
+   3.6973746041604414`*^9, 3.6973747402524614`*^9}, {3.6973747721904907`*^9, 
+   3.6973750006881623`*^9}, {3.697375042361746*^9, 3.6973750801445684`*^9}, {
+   3.69737534585203*^9, 3.6973754730299573`*^9}, {3.697375515110121*^9, 
+   3.6973755359704647`*^9}, {3.6973755712840133`*^9, 
+   3.6973757547626915`*^9}, {3.6974679006462975`*^9, 3.697467905996841*^9}, {
+   3.697467943731819*^9, 3.69746796036856*^9}, {3.697468168707823*^9, 
+   3.697468217918911*^9}, 3.6974683048482385`*^9, {3.6974685046357265`*^9, 
+   3.697468543581147*^9}, {3.6974686032421627`*^9, 3.6974688655233088`*^9}, {
+   3.697468906222926*^9, 3.697469082428936*^9}, {3.697469267439706*^9, 
+   3.6974693599844646`*^9}, {3.697469404521036*^9, 3.6974694442494044`*^9}, {
+   3.697469566822385*^9, 3.697469597694727*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{2560, 1357},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+PrintingStartingPageNumber->1,
+PrintingPageRange->{Automatic, Automatic},
+PageHeaders->{{
+   Cell[
+    TextData[{"Calvin", " ", "Zikakis", " ", 
+      CounterBox["Page", CounterFunction :> Identity]}], "Header", 
+    CellMargins -> {{0, Inherited}, {Inherited, Inherited}}], None, 
+   Cell[
+    TextData[{"Calvin", " ", "Zikakis"}], "Header", 
+    CellMargins -> {{Inherited, 0}, {Inherited, Inherited}}]}, {None, None, 
+   Cell[
+    TextData[{"Calvin", " ", "Zikakis", " ", 
+      CounterBox["Page", CounterFunction :> Identity]}], "Header", 
+    CellMargins -> {{Inherited, 0}, {Inherited, Inherited}}]}},
+PageFooters->{{None, None, None}, {None, None, None}},
+PageHeaderLines->{False, False},
+PageFooterLines->{False, False},
+PrintingOptions->{"FacingPages"->True,
+"FirstPageFace"->Right,
+"FirstPageFooter"->True,
+"FirstPageHeader"->True},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 173, 2, 90, "Title"],
+Cell[756, 26, 246, 8, 87, "Text"],
+Cell[CellGroupData[{
+Cell[1027, 38, 97, 1, 63, "Section"],
+Cell[1127, 41, 1315, 19, 68, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2479, 65, 182, 2, 63, "Section"],
+Cell[CellGroupData[{
+Cell[2686, 71, 5305, 148, 478, "Code"],
+Cell[7994, 221, 292, 4, 30, "Output"],
+Cell[8289, 227, 293, 4, 30, "Output"],
+Cell[8585, 233, 1939, 43, 168, "Output"],
+Cell[10527, 278, 2458, 51, 183, "Output"],
+Cell[12988, 331, 2509, 52, 195, "Output"]
+}, Open  ]],
+Cell[15512, 386, 934, 14, 49, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16483, 405, 121, 1, 63, "Section"],
+Cell[CellGroupData[{
+Cell[16629, 410, 4706, 136, 377, "Code"],
+Cell[21338, 548, 1658, 39, 206, "Output"]
+}, Open  ]],
+Cell[23011, 590, 381, 7, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23429, 602, 125, 2, 63, "Section"],
+Cell[23557, 606, 3326, 47, 177, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
